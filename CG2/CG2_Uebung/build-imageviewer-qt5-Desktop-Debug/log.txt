@@ -1,0 +1,20 @@
+Logging: 
+
+geladen: ../Pictures/Lenna.png
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+
+8.01268
+12.4802
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
+--- Histogram calculated: linear scaling = 0
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+8.01268
+12.4802
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
+--- Histogram calculated: linear scaling = 0

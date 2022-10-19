@@ -27,7 +27,7 @@ namespace cg2 {
         {
             for(int x = center_width-cross_width/2+0.5; x<center_width+cross_width/2;x++)
             {
-                workingImage->setPixel(x,y,qRgb(255,0,0));
+                workingImage->setPixel(x,y,qRgb(127,127,0));
             }
         }
 
@@ -35,7 +35,7 @@ namespace cg2 {
         {
             for(int y = center_height-cross_height/2+0.5; y<center_height+cross_height/2;y++)
             {
-                workingImage->setPixel(x,y,qRgb(255,0,0));
+                workingImage->setPixel(x,y,qRgb(127,127,0));
             }
         }
 

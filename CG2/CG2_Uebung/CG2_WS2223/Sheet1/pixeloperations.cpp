@@ -3,8 +3,8 @@
 
 
 namespace cg2 {
-    
-    /**
+
+/**
      * @brief calcImageCharacteristics
      *      calculation of the histogram, average value and variance of the image
      *      no return values, just set the references to the correct values
@@ -26,18 +26,61 @@ namespace cg2 {
      *      boolean, if true -> scale the histogram linear
      *               if false -> scale the histogram logarithmic
      */
-    void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& variance_ref, int& average_ref, const bool linear_scaling){
-        for (int i = 0; i < image->width(); i++) {
-            for (int j = 0; j < image->height(); j++) {
+void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& variance_ref, int& average_ref, const bool linear_scaling){
+    int pixel_count = (image->height()*image->width()); //Anzahl Pixel im Bild
+
+    // Berechnung der Mittleren Helligkeit
+    // In Schleife addiere Helligkeiten auf
+    for (int i = 0; i < image->width(); i++) {
+        for (int j = 0; j < image->height(); j++) {
+            QRgb pixel = image->pixel(i, j);
+
+            average_ref += qGray(pixel); //qGray wandelt in Graustufe um / Intensität
+        }
+    }
+    average_ref /= pixel_count; //Durchschnitt ziehen
+
+    //Berechne Varianz der Helligkeit/Intensität
+    for (int i = 0; i < image->width(); i++) {
+        for (int j = 0; j < image->height(); j++) {
+            QRgb pixel = image->pixel(i, j);
+
+            variance_ref += (qGray(pixel)-average_ref) * (qGray(pixel)-average_ref);
+            histogram_ref[qGray(pixel)] ++;
+        }
+    }
+    variance_ref /= pixel_count;
+
+    //Skalierung linear oder logarithmisch
+    if (linear_scaling) {
+        double linear_scale = 0;
+        for (int i = 0; i < 256; i++) {
+            if (linear_scale < histogram_ref[i]) {
+                linear_scale = histogram_ref[i];
             }
         }
+        linear_scale = 100/linear_scale;
         for (int i = 0; i < 256; i++) {
-            histogram_ref[i] = 50;
-        }
-        logFile << "Image characteristics calculated:" << std::endl << "--- Average: " << average_ref << " ; Variance: " << variance_ref << std::endl << "--- Histogram calculated: " << "linear scaling = " << linear_scaling << std::endl;
-    }
 
-    /**
+            histogram_ref[i] *= linear_scale;
+        }
+    } else {
+        double log_scale = 0;
+        for (int i = 0; i < 256; i++) {
+            histogram_ref[i] = log(histogram_ref[i]);
+            if (log_scale < histogram_ref[i]) {
+                log_scale = histogram_ref[i];
+            }
+        }
+        log_scale = 100/log_scale;
+        for (int i = 0; i < 256; i++) {
+            histogram_ref[i] *= log_scale;
+        }
+    }
+    logFile << "Image characteristics calculated:" << std::endl << "--- Average: " << average_ref << " ; Variance: " << variance_ref << std::endl << "--- Histogram calculated: " << "linear scaling = " << linear_scaling << std::endl;
+}
+
+/**
      * @brief changeImageDynamic
      *      calculate an image with the desired resolution (given bit depth -> dynamic value)
      *      and return the image pointer
@@ -47,19 +90,19 @@ namespace cg2 {
      *      bit depth value for resolution values from 8 to 1
      * @return new Image to show in GUI
      */
-    QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
+QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
 
-        for (int i = 0; i < image->width(); i++) {
-            for (int j = 0; j < image->height(); j++) {
+    for (int i = 0; i < image->width(); i++) {
+        for (int j = 0; j < image->height(); j++) {
 
-            }
         }
-        logFile << "Dynamik des Bildes geändert auf: " + std::to_string(newDynamicValue) + " Bit" << std::endl;
-        return image;
-
     }
+    logFile << "Dynamik des Bildes geändert auf: " + std::to_string(newDynamicValue) + " Bit" << std::endl;
+    return image;
 
-    /**
+}
+
+/**
      * @brief adjustBrightness
      *      Add brightness adjust on each pixel in the Image
      * @param image
@@ -69,21 +112,21 @@ namespace cg2 {
      *      the brightness adjust shift, will be added on each pixel
      * @return result image, will be shown in the GUI
      */
-    QImage* adjustBrightness(QImage * image, int brightness_adjust_factor){
-        for(int i=0;i<image->width();i++)
+QImage* adjustBrightness(QImage * image, int brightness_adjust_factor){
+    for(int i=0;i<image->width();i++)
+    {
+        for(int j=0;j<image->height();j++)
         {
-            for(int j=0;j<image->height();j++)
-            {
 
-            }
         }
-
-        logFile << "Brightness adjust applied with factor = " <<brightness_adjust_factor << std::endl;
-        return image;
-
     }
 
-    /**
+    logFile << "Brightness adjust applied with factor = " <<brightness_adjust_factor << std::endl;
+    return image;
+
+}
+
+/**
      * @brief adjustContrast
      *      calculate an contrast adjustment on each pixel in the Image
      * @param image
@@ -93,21 +136,21 @@ namespace cg2 {
      *      the contrast adjust factor
      * @return result image, will be shown in the GUI
      */
-    QImage* adjustContrast(QImage * image, double contrast_adjust_factor){
+QImage* adjustContrast(QImage * image, double contrast_adjust_factor){
 
-        for(int i=0;i<image->width();i++)
+    for(int i=0;i<image->width();i++)
+    {
+        for(int j=0;j<image->height();j++)
         {
-            for(int j=0;j<image->height();j++)
-            {
-            }
         }
-
-        logFile << "Contrast calculation done with contrast factor: " << contrast_adjust_factor << std::endl;
-        return image;
     }
 
+    logFile << "Contrast calculation done with contrast factor: " << contrast_adjust_factor << std::endl;
+    return image;
+}
 
-    /**
+
+/**
      * @brief doRobustAutomaticContrastAdjustment
      *      calculate the robust automatic contrast adjustment algorithm with the image as input
      * @param image
@@ -120,19 +163,19 @@ namespace cg2 {
      *      dark saturation
      * @return result image, will be shown in the GUI
      */
-    QImage* doRobustAutomaticContrastAdjustment(QImage * image, double plow, double phigh){
+QImage* doRobustAutomaticContrastAdjustment(QImage * image, double plow, double phigh){
 
-        for(int i=0;i<image->width();i++)
+    for(int i=0;i<image->width();i++)
+    {
+        for(int j=0;j<image->height();j++)
         {
-            for(int j=0;j<image->height();j++)
-            {
-            }
         }
-
-        logFile << "Robust automatic contrast adjustment applied with:"<< std::endl << "---plow = " << (plow*100) <<"%" << std::endl << "---phigh = " << (phigh*100)<<"%" << std::endl;
-
-        return image;
     }
+
+    logFile << "Robust automatic contrast adjustment applied with:"<< std::endl << "---plow = " << (plow*100) <<"%" << std::endl << "---phigh = " << (phigh*100)<<"%" << std::endl;
+
+    return image;
+}
 
 }
 
