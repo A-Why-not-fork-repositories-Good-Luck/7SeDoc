@@ -34,7 +34,7 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
     for (int i = 0; i < image->width(); i++) {
         for (int j = 0; j < image->height(); j++) {
             QRgb pixel = image->pixel(i, j);
-
+            //image->setPixel(i,j,qRgb(qGray(pixel),qGray(pixel),qGray(pixel)));
             average_ref += qGray(pixel); //qGray wandelt in Graustufe um / Intensität
         }
     }
@@ -91,10 +91,30 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
      * @return new Image to show in GUI
      */
 QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
+    int s = pow(2, newDynamicValue);
+    double intervall = 255.0/(s-1);
 
+    double* values = new double[s];
+    values[0] = 0;
+    for(int i = 1; i < s; i++) {
+        values[i] = values[i-1] + intervall;
+    }
+//    for(int i = 0; i < s; i++) {
+//        logFile << values[i] << std::endl;
+//    }
+//    logFile << "Anzahl möglicher Werte: " << s << "   Intervall: " << intervall << std::endl;
+
+    int temp;
     for (int i = 0; i < image->width(); i++) {
         for (int j = 0; j < image->height(); j++) {
+            int pixel = qGray(image->pixel(i,j));
+            temp = qGray(pixel);
+            for (int l = 0; l < s; l++) {
+                if (temp >= values[i] - (intervall/2) && temp <= values[i] + (intervall/2)) {
 
+                    break;
+                }
+            }
         }
     }
     logFile << "Dynamik des Bildes geändert auf: " + std::to_string(newDynamicValue) + " Bit" << std::endl;

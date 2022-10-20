@@ -5,16 +5,13 @@ Image characteristics calculated:
 --- Average: 127 ; Variance: 2172
 --- Histogram calculated: linear scaling = 1
 
-8.01268
-12.4802
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 0
+Dynamik des Bildes geändert auf: 7 Bit
 Image characteristics calculated:
 --- Average: 127 ; Variance: 2172
 --- Histogram calculated: linear scaling = 1
-8.01268
-12.4802
+
+Dynamik des Bildes geändert auf: 6 Bit
 Image characteristics calculated:
 --- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 0
+--- Histogram calculated: linear scaling = 1
+
