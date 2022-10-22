@@ -91,34 +91,146 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
      * @return new Image to show in GUI
      */
 QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
-    int s = pow(2, newDynamicValue);
-    double intervall = 255.0/(s-1);
+    workingImage = new QImage(*backupImage);
+    //image = workingImage;
 
-    double* values = new double[s];
-    values[0] = 0;
-    for(int i = 1; i < s; i++) {
-        values[i] = values[i-1] + intervall;
-    }
-//    for(int i = 0; i < s; i++) {
-//        logFile << values[i] << std::endl;
-//    }
-//    logFile << "Anzahl möglicher Werte: " << s << "   Intervall: " << intervall << std::endl;
+    //    int s = pow(2, newDynamicValue);
+    //    double intervall = 255.0/(s-1);
 
-    int temp;
-    for (int i = 0; i < image->width(); i++) {
-        for (int j = 0; j < image->height(); j++) {
-            int pixel = qGray(image->pixel(i,j));
-            temp = qGray(pixel);
-            for (int l = 0; l < s; l++) {
-                if (temp >= values[i] - (intervall/2) && temp <= values[i] + (intervall/2)) {
+    //    double* values = new double[s];
+    //    values[0] = 0;
+    //    for(int i = 1; i < s; i++) {
+    //        values[i] = values[i-1] + intervall;
+    //    }
+    //    //    for(int i = 0; i < s; i++) {
+    //    //        logFile << values[i] << std::endl;
+    //    //    }
+    //    //    logFile << "Anzahl möglicher Werte: " << s << "   Intervall: " << intervall << std::endl;
 
-                    break;
-                }
-            }
+
+    //    double prot;
+    //    double pgruen;
+    //    double pblau;
+
+    //    for (int i = 0; i < workingImage->width(); i++) {
+    //        for (int j = 0; j < workingImage->height(); j++) {
+    //            for (int l = 0; l < s; l++) {
+
+    //                QRgb pixel = workingImage->pixel(i,j);
+    //                prot = qRed(pixel);
+    //                pgruen = qGreen(pixel);
+    //                pblau = qBlue(pixel);
+
+    //                for(int k = 0; k < s; i++) {
+
+    //                    if (prot >= values[k] - (intervall/2) && prot <= values[k] + (intervall/2)) {
+    //                        prot = values[k];
+    //                    }
+    //                    if (pgruen >= values[k] - (intervall/2) && pgruen <= values[k] + (intervall/2)) {
+    //                        pgruen = values[k];
+    //                    }
+    //                    if (pblau >= values[k] - (intervall/2) && pblau <= values[k] + (intervall/2)) {
+    //                        pblau = values[k];
+    //                    }
+
+    //                }
+
+    //                workingImage->setPixel(i, j, qRgb(prot, pgruen, pblau));
+    //            }
+
+    //        }
+    //    }
+
+
+
+
+
+    double faktor = pow(2, newDynamicValue)/256;
+    int faktorKehr = 1/faktor;
+    double s_rot;
+    double s_gruen;
+    double s_blau;
+    for(int i=0;i<workingImage->width();i++)
+    {
+        for(int j=0;j<workingImage->height();j++)
+        {
+            QRgb pixel = workingImage->pixel(i,j);
+
+            double prot = qRed(pixel);
+            double pgruen = qGreen(pixel);
+            double pblau = qBlue(pixel);
+            double grau = qGray(pixel);
+
+            //            prot++;
+            //            pgruen++;
+            //            pblau++;
+
+            prot *= faktor;
+            pgruen *= faktor;
+            pblau *= faktor;
+
+            prot = floor(prot);
+            pgruen = floor(pgruen);
+            pblau = floor(pblau);
+
+            prot *= faktorKehr;
+            pgruen *= faktorKehr;
+            pblau *= faktorKehr;
+
+            //            prot--;
+            //            pgruen--;
+            //            pblau--;
+
+            //            prot -= s_rot;
+            //            pgruen -= s_gruen;
+            //            pblau -= s_blau;
+
+
+            //            prot *= 0.299;
+            //            pgruen *= 0.587;
+            //            pblau *= 0.144;
+
+            workingImage->setPixel(i, j, qRgb(prot, pgruen, pblau));
+
         }
     }
+
+    //    int felder = 256/pow(2, newDynamicValue);
+    //    std::cout << felder << std::endl;
+    //    for (int i = 0; i < image->width(); i++) {
+    //        for (int j = 0; j < image->height(); j++) {
+
+    //            QRgb pixel = image->pixel(i, j);
+    //            int prot = qRed(pixel);
+    //            int pgruen = qGreen(pixel);
+    //            int pblau = qBlue(pixel);
+    //            int grau = qGray(pixel);
+    //            int zahl = grau%felder;
+    //            int faktor;
+
+    //            if(zahl > (felder/2)){
+    //                faktor = (felder - zahl);
+    //            } else {
+    //                faktor = zahl * (-1);
+    //            }
+    //            //std::cout <<"Felder: "<< felder << "Zahl: " << zahl << "Faktor:" << faktor << std::endl;
+    //            int rot = prot + faktor*0.299;
+    //            int gruen = pgruen + faktor*0.587;
+    //            int blau = pblau  + faktor * 0.114;
+    //            image->setPixel(i, j, qRgb(rot,gruen,blau));
+
+
+    //            //std::cout << "Aus rot: " <<  prot  << " wurde " << rot << " " << gruen << " " << blau << " " << grau << std::endl;
+
+    //            // pixel setter in image with qRgb
+    //            // note that qRgb values must be in [0,255]
+    //            //image->setPixel(i, j, qRgb(rot,gruen,blau));
+    //        }
+    //    }
+
+
     logFile << "Dynamik des Bildes geändert auf: " + std::to_string(newDynamicValue) + " Bit" << std::endl;
-    return image;
+    return workingImage;
 
 }
 
@@ -132,7 +244,7 @@ QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
      *      the brightness adjust shift, will be added on each pixel
      * @return result image, will be shown in the GUI
      */
-QImage* adjustBrightness(QImage * image, int brightness_adjust_factor){
+QImage* adjustBrightness(QImage * image, int brightness_adjust_factor) {
     for(int i=0;i<image->width();i++)
     {
         for(int j=0;j<image->height();j++)
