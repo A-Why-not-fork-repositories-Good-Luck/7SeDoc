@@ -61,7 +61,6 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
         }
         linear_scale = 100/linear_scale;
         for (int i = 0; i < 256; i++) {
-
             histogram_ref[i] *= linear_scale;
         }
     } else {
@@ -147,6 +146,7 @@ QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
 
     double faktor = pow(2, newDynamicValue)/256;
     int faktorKehr = 1/faktor;
+    double middle = pow(2, newDynamicValue)/2;
     double s_rot;
     double s_gruen;
     double s_blau;
@@ -169,9 +169,30 @@ QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
             pgruen *= faktor;
             pblau *= faktor;
 
-            prot = floor(prot);
-            pgruen = floor(pgruen);
-            pblau = floor(pblau);
+//            if (grau >= middle) {
+//                prot = round(prot);
+//                pgruen = round(pgruen);
+//                pblau = round(pblau);
+//            } else if (grau < middle) {
+//                prot = floor(prot);
+//                pgruen = floor(pgruen);
+//                pblau = floor(pblau);
+//            }
+            if (prot >= middle) {
+                prot = round(prot);
+            } else if (prot <= middle) {
+                prot = floor(prot);
+            }
+            if (pgruen >= middle) {
+                pgruen = round(prot);
+            } else if (pgruen <= middle) {
+                pgruen = floor(prot);
+            }
+            if (pblau >= middle) {
+                pblau = round(prot);
+            } else if (pblau <= middle) {
+                pblau = floor(prot);
+            }
 
             prot *= faktorKehr;
             pgruen *= faktorKehr;
@@ -235,6 +256,23 @@ QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
 }
 
 /**
+ * @brief new_clippedRGB_value: Adds brightness adjust to pixel value. clipping the result to [0,255].
+ * @param pixel_value
+ * @param brightness_adjust_factor
+ * @return result int [0,255]
+ */
+constexpr int new_clippedRGB_value_brightness(int pixel_value, int brightness_adjust_factor){
+    int color = pixel_value + brightness_adjust_factor;
+    if(color > 255){
+        color = 255;
+    }
+    else if(color < 0){
+        color = 0;
+    }
+    return color;
+}
+
+/**
      * @brief adjustBrightness
      *      Add brightness adjust on each pixel in the Image
      * @param image
@@ -245,17 +283,38 @@ QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
      * @return result image, will be shown in the GUI
      */
 QImage* adjustBrightness(QImage * image, int brightness_adjust_factor) {
+    workingImage = new QImage(*backupImage);
+
     for(int i=0;i<image->width();i++)
     {
         for(int j=0;j<image->height();j++)
         {
+            // Pixel object and pixel getter from image
+            QRgb pixel = workingImage->pixel(i, j);
+            int rot = new_clippedRGB_value_brightness(qRed(pixel), brightness_adjust_factor);
+            int gruen = new_clippedRGB_value_brightness(qGreen(pixel), brightness_adjust_factor);
+            int blau = new_clippedRGB_value_brightness(qBlue(pixel), brightness_adjust_factor);
 
+            // pixel setter in image with qRgb
+            // note that qRgb values must be in [0,255]
+            workingImage->setPixel(i, j, qRgb(rot,gruen,blau));
         }
     }
 
     logFile << "Brightness adjust applied with factor = " <<brightness_adjust_factor << std::endl;
-    return image;
+    return workingImage;
 
+}
+
+constexpr int new_clippedRGB_value_contrast(int pixel_value, int contrast_adjust_factor){
+    int color = pixel_value * contrast_adjust_factor;
+    if(color > 255){
+        color = 255;
+    }
+    else if(color < 0){
+        color = 0;
+    }
+    return color;
 }
 
 /**
@@ -269,16 +328,26 @@ QImage* adjustBrightness(QImage * image, int brightness_adjust_factor) {
      * @return result image, will be shown in the GUI
      */
 QImage* adjustContrast(QImage * image, double contrast_adjust_factor){
+    workingImage = new QImage(*backupImage);
 
     for(int i=0;i<image->width();i++)
     {
         for(int j=0;j<image->height();j++)
         {
+            // Pixel object and pixel getter from image
+            QRgb pixel = workingImage->pixel(i, j);
+            int rot = new_clippedRGB_value_contrast(qRed(pixel), contrast_adjust_factor);
+            int gruen = new_clippedRGB_value_contrast(qGreen(pixel), contrast_adjust_factor);
+            int blau = new_clippedRGB_value_contrast(qBlue(pixel), contrast_adjust_factor);
+
+            // pixel setter in image with qRgb
+            // note that qRgb values must be in [0,255]
+            workingImage->setPixel(i, j, qRgb(rot,gruen,blau));
         }
     }
 
     logFile << "Contrast calculation done with contrast factor: " << contrast_adjust_factor << std::endl;
-    return image;
+    return workingImage;
 }
 
 
