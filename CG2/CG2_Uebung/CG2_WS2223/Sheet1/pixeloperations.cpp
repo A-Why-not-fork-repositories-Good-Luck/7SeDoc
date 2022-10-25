@@ -4,6 +4,16 @@
 
 namespace cg2 {
 
+constexpr int new_clippedRGB_value (int pixel_value){
+    if(pixel_value > 255){
+        pixel_value = 255;
+    }
+    else if(pixel_value < 0){
+        pixel_value = 0;
+    }
+    return pixel_value;
+}
+
 /**
      * @brief calcImageCharacteristics
      *      calculation of the histogram, average value and variance of the image
@@ -140,16 +150,53 @@ QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
     //        }
     //    }
 
+    int max_r = 0;
+    int min_r = 256;
+    int max_g = 0;
+    int min_g = 256;
+    int max_b = 0;
+    int min_b = 256;
+    for(int i=0;i<image->width();i++)
+    {
+        for(int j=0;j<image->height();j++)
+        {
+            QRgb pixel = workingImage->pixel(i, j);
+            int rot = qRed(pixel);
+            int gruen = qGreen(pixel);
+            int blau = qBlue(pixel);
 
+            if (rot > max_r) {
+                max_r = rot;
+            }
+            if (rot < min_r) {
+                min_r = rot;
+            }
+
+            if (gruen > max_g) {
+                max_g = gruen;
+            }
+            if (gruen < min_g) {
+                min_g = gruen;
+            }
+
+            if (blau > max_b) {
+                max_b = blau;
+            }
+            if (blau < min_b) {
+                min_b = blau;
+            }
+        }
+    }
+
+    int mid_r = (int) ((double)(max_r - min_r) / 2 + min_r + 0.5);
+    int mid_g = (int) ((double)(max_g - min_g) / 2 + min_g + 0.5);
+    int mid_b = (int) ((double)(max_b -  min_b) / 2 + min_b + 0.5);
 
 
 
     double faktor = pow(2, newDynamicValue)/256;
     int faktorKehr = 1/faktor;
-    double middle = pow(2, newDynamicValue)/2;
-    double s_rot;
-    double s_gruen;
-    double s_blau;
+    int middle = pow(2, newDynamicValue)/2;
     for(int i=0;i<workingImage->width();i++)
     {
         for(int j=0;j<workingImage->height();j++)
@@ -161,35 +208,26 @@ QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
             double pblau = qBlue(pixel);
             double grau = qGray(pixel);
 
-            //            prot++;
-            //            pgruen++;
-            //            pblau++;
+//            prot -= mid_r;
+//            pgruen -= mid_g;
+//            pblau -= mid_b;
 
             prot *= faktor;
             pgruen *= faktor;
             pblau *= faktor;
 
-//            if (grau >= middle) {
-//                prot = round(prot);
-//                pgruen = round(pgruen);
-//                pblau = round(pblau);
-//            } else if (grau < middle) {
-//                prot = floor(prot);
-//                pgruen = floor(pgruen);
-//                pblau = floor(pblau);
-//            }
             if (prot >= middle) {
-                prot = round(prot);
+                prot = ceil(prot);
             } else if (prot <= middle) {
                 prot = floor(prot);
             }
             if (pgruen >= middle) {
-                pgruen = round(prot);
+                pgruen = ceil(prot);
             } else if (pgruen <= middle) {
                 pgruen = floor(prot);
             }
             if (pblau >= middle) {
-                pblau = round(prot);
+                pblau = ceil(prot);
             } else if (pblau <= middle) {
                 pblau = floor(prot);
             }
@@ -198,18 +236,13 @@ QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
             pgruen *= faktorKehr;
             pblau *= faktorKehr;
 
-            //            prot--;
-            //            pgruen--;
-            //            pblau--;
+//            prot += mid_r;
+//            pgruen += mid_g;
+//            pblau += mid_b;
 
-            //            prot -= s_rot;
-            //            pgruen -= s_gruen;
-            //            pblau -= s_blau;
-
-
-            //            prot *= 0.299;
-            //            pgruen *= 0.587;
-            //            pblau *= 0.144;
+            prot = new_clippedRGB_value(prot);
+            pgruen = new_clippedRGB_value(pgruen);
+            pblau = new_clippedRGB_value(pblau);
 
             workingImage->setPixel(i, j, qRgb(prot, pgruen, pblau));
 
@@ -306,17 +339,6 @@ QImage* adjustBrightness(QImage * image, int brightness_adjust_factor) {
 
 }
 
-constexpr int new_clippedRGB_value_contrast(int pixel_value, int contrast_adjust_factor){
-    int color = pixel_value * contrast_adjust_factor;
-    if(color > 255){
-        color = 255;
-    }
-    else if(color < 0){
-        color = 0;
-    }
-    return color;
-}
-
 /**
      * @brief adjustContrast
      *      calculate an contrast adjustment on each pixel in the Image
@@ -330,37 +352,77 @@ constexpr int new_clippedRGB_value_contrast(int pixel_value, int contrast_adjust
 QImage* adjustContrast(QImage * image, double contrast_adjust_factor){
     workingImage = new QImage(*backupImage);
 
+    int max_r = 0;
+    int min_r = 256;
+    int max_g = 0;
+    int min_g = 256;
+    int max_b = 0;
+    int min_b = 256;
+    for(int i=0;i<image->width();i++)
+    {
+        for(int j=0;j<image->height();j++)
+        {
+            QRgb pixel = workingImage->pixel(i, j);
+            int rot = qRed(pixel);
+            int gruen = qGreen(pixel);
+            int blau = qBlue(pixel);
 
-    int min = 0;
-    for (int i = 0; i < 256; i++) {
-        if (histogramm[i] > 0) {
-            min = i;
-            break;
+            if (rot > max_r) {
+                max_r = rot;
+            }
+            if (rot < min_r) {
+                min_r = rot;
+            }
+
+            if (gruen > max_g) {
+                max_g = gruen;
+            }
+            if (gruen < min_g) {
+                min_g = gruen;
+            }
+
+            if (blau > max_b) {
+                max_b = blau;
+            }
+            if (blau < min_b) {
+                min_b = blau;
+            }
         }
     }
-    //logFile << "Min: "  << min << std::endl;
 
-    int max = 255;
-    for (int i = 255; i >= 0; i--) {
-        if (histogramm[i] > 0) {
-            max = i;
-            break;
-        }
-    }
-    //logFile << "Max: " << max << std::endl;
+    int mid_r = (int) ((double)(max_r - min_r) / 2 + min_r + 0.5);
+    int mid_g = (int) ((double)(max_g - min_g) / 2 + min_g + 0.5);
+    int mid_b = (int) ((double)(max_b -  min_b) / 2 + min_b + 0.5);
+
+    logFile << min_r << ", " << max_r << ", " << mid_r << std::endl;
+    logFile << min_g << ", " << max_g << ", " << mid_g << std::endl;
+    logFile << min_b << ", " << max_b << ", " << mid_b << std::endl;
 
     for(int i=0;i<image->width();i++)
     {
         for(int j=0;j<image->height();j++)
         {
-            // Pixel object and pixel getter from image
             QRgb pixel = workingImage->pixel(i, j);
-            int rot = new_clippedRGB_value_contrast(qRed(pixel), contrast_adjust_factor);
-            int gruen = new_clippedRGB_value_contrast(qGreen(pixel), contrast_adjust_factor);
-            int blau = new_clippedRGB_value_contrast(qBlue(pixel), contrast_adjust_factor);
+            int rot = qRed(pixel);
+            int gruen = qGreen(pixel);
+            int blau = qBlue(pixel);
 
-            // pixel setter in image with qRgb
-            // note that qRgb values must be in [0,255]
+            rot -= mid_r;
+            gruen -= mid_g;
+            blau -= mid_b;
+
+            rot = (int) (rot * contrast_adjust_factor + 0.5);
+            gruen = (int) (gruen * contrast_adjust_factor + 0.5);
+            blau = (int) (blau * contrast_adjust_factor + 0.5);
+
+            rot += mid_r;
+            gruen += mid_g;
+            blau += mid_b;
+
+            rot = new_clippedRGB_value(rot);
+            gruen = new_clippedRGB_value(gruen);
+            blau = new_clippedRGB_value(blau);
+
             workingImage->setPixel(i, j, qRgb(rot,gruen,blau));
         }
     }
@@ -384,17 +446,72 @@ QImage* adjustContrast(QImage * image, double contrast_adjust_factor){
      * @return result image, will be shown in the GUI
      */
 QImage* doRobustAutomaticContrastAdjustment(QImage * image, double plow, double phigh){
+    workingImage = new QImage(*backupImage);
 
+    int high_r = 0;
+    int low_r = 256;
+    int high_g = 0;
+    int low_g = 256;
+    int high_b = 0;
+    int low_b = 256;
     for(int i=0;i<image->width();i++)
     {
         for(int j=0;j<image->height();j++)
         {
+            QRgb pixel = workingImage->pixel(i, j);
+            int rot = qRed(pixel);
+            int gruen = qGreen(pixel);
+            int blau = qBlue(pixel);
+
+            if (rot > high_r) {
+                high_r = rot;
+            }
+            if (rot < low_r) {
+                low_r = rot;
+            }
+
+            if (gruen > high_g) {
+                high_g = gruen;
+            }
+            if (gruen < low_g) {
+                low_g = gruen;
+            }
+
+            if (blau > high_b) {
+                high_b = blau;
+            }
+            if (blau < low_b) {
+                low_b = blau;
+            }
+        }
+    }
+
+    double anteilLow = workingImage->width() * workingImage->height() * plow;
+    double anteilHigh = workingImage->width() * workingImage->height() * phigh;
+
+    int count = 0;
+    for (int i = 0; count < anteilLow; i++) {
+        count += histogramm[i];
+    }
+
+    int aMin = 0;
+    int aMax = 255;
+    for(int i=0;i<workingImage->width();i++)
+    {
+        for(int j=0;j<workingImage->height();j++)
+        {
+            QRgb pixel = workingImage->pixel(i, j);
+            int rot = qRed(pixel);
+            int gruen = qGreen(pixel);
+            int blau = qBlue(pixel);
+
+
         }
     }
 
     logFile << "Robust automatic contrast adjustment applied with:"<< std::endl << "---plow = " << (plow*100) <<"%" << std::endl << "---phigh = " << (phigh*100)<<"%" << std::endl;
 
-    return image;
+    return workingImage;
 }
 
 }

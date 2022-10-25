@@ -5,423 +5,627 @@ Image characteristics calculated:
 --- Average: 127 ; Variance: 2172
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 128 ; Variance: 2140
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 0.98
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.96
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.94
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.92
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.9
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.88
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.9
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.92
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.94
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.96
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.98
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 1
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1.04
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 127 ; Variance: 2315
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1.08
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 127 ; Variance: 2497
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 1.16
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.12
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 127 ; Variance: 2680
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1.2
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 126 ; Variance: 3039
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 1.24
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.28
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 126 ; Variance: 3363
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1.32
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 126 ; Variance: 3515
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1.36
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 126 ; Variance: 3661
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1.4
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 126 ; Variance: 3803
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 1.36
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.48
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 125 ; Variance: 4074
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.44
+Image characteristics calculated:
+--- Average: 125 ; Variance: 3941
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.4
+Image characteristics calculated:
+--- Average: 126 ; Variance: 3803
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1.32
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 126 ; Variance: 3515
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 1.16
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 1.04
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.98
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.94
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.92
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.94
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 1
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 1.2
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 1.28
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 1.32
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 1.28
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 1.08
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.94
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.86
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.88
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 0.96
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 1.12
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1.24
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 126 ; Variance: 3205
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 1.2
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1.04
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 127 ; Variance: 2315
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 0.9
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.92
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 128 ; Variance: 1809
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 0.84
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 129 ; Variance: 1506
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 0.82
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 129 ; Variance: 1434
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 0.9
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.78
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 129 ; Variance: 1297
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 1.04
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.76
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 129 ; Variance: 1231
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 1.16
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.74
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 129 ; Variance: 1166
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 1.12
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.72
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 129 ; Variance: 1103
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 0.96
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.74
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 129 ; Variance: 1166
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.76
+Image characteristics calculated:
+--- Average: 129 ; Variance: 1231
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.8
+Image characteristics calculated:
+--- Average: 129 ; Variance: 1365
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 0.84
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 129 ; Variance: 1506
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 0.86
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.9
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 128 ; Variance: 1734
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 1.04
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
-Contrast calculation done with contrast factor: 1.2
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 0.94
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 128 ; Variance: 1890
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 0.96
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 128 ; Variance: 2140
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.04
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2315
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.08
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2497
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.16
+Image characteristics calculated:
+--- Average: 126 ; Variance: 2863
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.24
+Image characteristics calculated:
+--- Average: 126 ; Variance: 3205
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1.28
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 126 ; Variance: 3363
 --- Histogram calculated: linear scaling = 1
 
-29
-243
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.32
+Image characteristics calculated:
+--- Average: 126 ; Variance: 3515
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.36
+Image characteristics calculated:
+--- Average: 126 ; Variance: 3661
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.4
+Image characteristics calculated:
+--- Average: 126 ; Variance: 3803
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.44
+Image characteristics calculated:
+--- Average: 125 ; Variance: 3941
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.48
+Image characteristics calculated:
+--- Average: 125 ; Variance: 4074
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.52
+Image characteristics calculated:
+--- Average: 125 ; Variance: 4206
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.56
+Image characteristics calculated:
+--- Average: 125 ; Variance: 4331
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.6
+Image characteristics calculated:
+--- Average: 125 ; Variance: 4453
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.64
+Image characteristics calculated:
+--- Average: 125 ; Variance: 4575
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.68
+Image characteristics calculated:
+--- Average: 124 ; Variance: 4692
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.72
+Image characteristics calculated:
+--- Average: 124 ; Variance: 4806
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.76
+Image characteristics calculated:
+--- Average: 124 ; Variance: 4916
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.8
+Image characteristics calculated:
+--- Average: 124 ; Variance: 5022
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.84
+Image characteristics calculated:
+--- Average: 123 ; Variance: 5127
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.88
+Image characteristics calculated:
+--- Average: 123 ; Variance: 5228
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.92
+Image characteristics calculated:
+--- Average: 123 ; Variance: 5326
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.96
+Image characteristics calculated:
+--- Average: 123 ; Variance: 5420
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 2
+Image characteristics calculated:
+--- Average: 122 ; Variance: 5511
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 2.04
+Image characteristics calculated:
+--- Average: 122 ; Variance: 5596
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 2
+Image characteristics calculated:
+--- Average: 122 ; Variance: 5511
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.96
+Image characteristics calculated:
+--- Average: 123 ; Variance: 5420
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.88
+Image characteristics calculated:
+--- Average: 123 ; Variance: 5228
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.76
+Image characteristics calculated:
+--- Average: 124 ; Variance: 4916
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.68
+Image characteristics calculated:
+--- Average: 124 ; Variance: 4692
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.6
+Image characteristics calculated:
+--- Average: 125 ; Variance: 4453
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.48
+Image characteristics calculated:
+--- Average: 125 ; Variance: 4074
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.4
+Image characteristics calculated:
+--- Average: 126 ; Variance: 3803
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.36
+Image characteristics calculated:
+--- Average: 126 ; Variance: 3661
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.2
+Image characteristics calculated:
+--- Average: 126 ; Variance: 3039
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 1.12
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2680
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
 Contrast calculation done with contrast factor: 1.04
 Image characteristics calculated:
+--- Average: 127 ; Variance: 2315
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.98
+Image characteristics calculated:
+--- Average: 128 ; Variance: 2057
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.96
+Image characteristics calculated:
+--- Average: 128 ; Variance: 1972
+--- Histogram calculated: linear scaling = 1
+
+54, 255, 155
+3, 248, 126
+8, 225, 117
+Contrast calculation done with contrast factor: 0.94
+Image characteristics calculated:
+--- Average: 128 ; Variance: 1890
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = 0
+Image characteristics calculated:
 --- Average: 127 ; Variance: 2172
 --- Histogram calculated: linear scaling = 1
 
-29
-243
-Contrast calculation done with contrast factor: 0.94
+Brightness adjust applied with factor = -1
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 126 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -9
+Image characteristics calculated:
+--- Average: 118 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -26
+Image characteristics calculated:
+--- Average: 101 ; Variance: 2115
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -47
+Image characteristics calculated:
+--- Average: 82 ; Variance: 1890
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -55
+Image characteristics calculated:
+--- Average: 75 ; Variance: 1787
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -60
+Image characteristics calculated:
+--- Average: 71 ; Variance: 1718
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -82
+Image characteristics calculated:
+--- Average: 53 ; Variance: 1344
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -81
+Image characteristics calculated:
+--- Average: 53 ; Variance: 1364
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -45
+Image characteristics calculated:
+--- Average: 84 ; Variance: 1915
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -9
+Image characteristics calculated:
+--- Average: 118 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = 18
+Image characteristics calculated:
+--- Average: 145 ; Variance: 2156
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = 47
+Image characteristics calculated:
+--- Average: 172 ; Variance: 1940
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = 68
+Image characteristics calculated:
+--- Average: 189 ; Variance: 1642
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = 92
+Image characteristics calculated:
+--- Average: 206 ; Variance: 1251
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = 108
+Image characteristics calculated:
+--- Average: 217 ; Variance: 996
 --- Histogram calculated: linear scaling = 1
 
