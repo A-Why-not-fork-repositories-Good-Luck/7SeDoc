@@ -330,6 +330,25 @@ constexpr int new_clippedRGB_value_contrast(int pixel_value, int contrast_adjust
 QImage* adjustContrast(QImage * image, double contrast_adjust_factor){
     workingImage = new QImage(*backupImage);
 
+
+    int min = 0;
+    for (int i = 0; i < 256; i++) {
+        if (histogramm[i] > 0) {
+            min = i;
+            break;
+        }
+    }
+    //logFile << "Min: "  << min << std::endl;
+
+    int max = 255;
+    for (int i = 255; i >= 0; i--) {
+        if (histogramm[i] > 0) {
+            max = i;
+            break;
+        }
+    }
+    //logFile << "Max: " << max << std::endl;
+
     for(int i=0;i<image->width();i++)
     {
         for(int j=0;j<image->height();j++)
