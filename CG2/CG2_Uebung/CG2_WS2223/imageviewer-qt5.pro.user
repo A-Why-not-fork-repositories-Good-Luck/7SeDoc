@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 8.0.1, 2022-11-03T10:35:35. -->
+<!-- Written by QtCreator 8.0.1, 2022-11-03T11:38:35. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -233,13 +233,15 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/lasse/Dokumente/Git/7.Semester/7SeDoc/CG2/CG2_Uebung/CG2_WS2223/imageviewer-qt5.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/lasse/Dokumente/Git/7.Semester/7SeDoc/CG2/CG2_Uebung/CG2_WS2223/imageviewer-qt5.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">imageviewer-qt52</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/lasse/Schreibtisch/CG2_WS2223/imageviewer-qt5.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/lasse/Schreibtisch/CG2_WS2223/imageviewer-qt5.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/lasse/Dokumente/Git/7.Semester/7SeDoc/CG2/CG2_Uebung/build-imageviewer-qt5-Desktop-Debug</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
