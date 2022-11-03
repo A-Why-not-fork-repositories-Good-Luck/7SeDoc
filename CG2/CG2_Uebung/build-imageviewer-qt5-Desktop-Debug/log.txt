@@ -5,63 +5,107 @@ Image characteristics calculated:
 --- Average: 127 ; Variance: 2172
 --- Histogram calculated: linear scaling = 1
 
-Dynamik des Bildes geändert auf: 7 Bit
+0.01   0.01
+103   155
+Robust automatic contrast adjustment applied with:
+---plow = 1%
+---phigh = 1%
 Image characteristics calculated:
---- Average: 126 ; Variance: 2173
+--- Average: 129 ; Variance: -6376
 --- Histogram calculated: linear scaling = 1
 
-Dynamik des Bildes geändert auf: 6 Bit
-Image characteristics calculated:
---- Average: 126 ; Variance: 2173
---- Histogram calculated: linear scaling = 1
-
-Dynamik des Bildes geändert auf: 3 Bit
-Image characteristics calculated:
---- Average: 112 ; Variance: 2244
---- Histogram calculated: linear scaling = 1
-
-Dynamik des Bildes geändert auf: 1 Bit
-Image characteristics calculated:
---- Average: 59 ; Variance: 1990
---- Histogram calculated: linear scaling = 1
-
-Dynamik des Bildes geändert auf: 2 Bit
-Image characteristics calculated:
---- Average: 97 ; Variance: 2177
---- Histogram calculated: linear scaling = 1
-
-Dynamik des Bildes geändert auf: 3 Bit
-Image characteristics calculated:
---- Average: 112 ; Variance: 2244
---- Histogram calculated: linear scaling = 1
-
-Dynamik des Bildes geändert auf: 2 Bit
-Image characteristics calculated:
---- Average: 97 ; Variance: 2177
---- Histogram calculated: linear scaling = 1
-
-Dynamik des Bildes geändert auf: 1 Bit
-Image characteristics calculated:
---- Average: 59 ; Variance: 1990
---- Histogram calculated: linear scaling = 1
-
-Dynamik des Bildes geändert auf: 8 Bit
+Reset Image
 Image characteristics calculated:
 --- Average: 127 ; Variance: 2172
 --- Histogram calculated: linear scaling = 1
 
-Dynamik des Bildes geändert auf: 1 Bit
+0.01   0.01
+103   155
+Robust automatic contrast adjustment applied with:
+---plow = 1%
+---phigh = 1%
 Image characteristics calculated:
---- Average: 59 ; Variance: 1990
+--- Average: 129 ; Variance: -6376
 --- Histogram calculated: linear scaling = 1
 
-Dynamik des Bildes geändert auf: 8 Bit
+Reset Image
 Image characteristics calculated:
 --- Average: 127 ; Variance: 2172
 --- Histogram calculated: linear scaling = 1
 
-Dynamik des Bildes geändert auf: 1 Bit
+0.01   0.01
+103   155
+Robust automatic contrast adjustment applied with:
+---plow = 1%
+---phigh = 1%
 Image characteristics calculated:
---- Average: 59 ; Variance: 1990
+--- Average: 129 ; Variance: -6376
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+
+0.01   0.01
+103   155
+Robust automatic contrast adjustment applied with:
+---plow = 1%
+---phigh = 1%
+Image characteristics calculated:
+--- Average: 129 ; Variance: -6376
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+
+0.01   0.01
+103   155
+Robust automatic contrast adjustment applied with:
+---plow = 1%
+---phigh = 1%
+Image characteristics calculated:
+--- Average: 129 ; Variance: -6376
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+
+0.01   0.01
+103   155
+Robust automatic contrast adjustment applied with:
+---plow = 1%
+---phigh = 1%
+Image characteristics calculated:
+--- Average: 129 ; Variance: -6376
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 127 ; Variance: 2172
 --- Histogram calculated: linear scaling = 1
 

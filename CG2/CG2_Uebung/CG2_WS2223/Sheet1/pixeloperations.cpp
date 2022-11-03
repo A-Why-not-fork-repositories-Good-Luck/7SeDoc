@@ -486,13 +486,24 @@ QImage* doRobustAutomaticContrastAdjustment(QImage * image, double plow, double 
         }
     }
 
+    logFile << phigh << "   " << plow << std::endl;
+
     double anteilLow = workingImage->width() * workingImage->height() * plow;
     double anteilHigh = workingImage->width() * workingImage->height() * phigh;
 
-    int count = 0;
-    for (int i = 0; count < anteilLow; i++) {
-        count += histogramm[i];
+    int count_low = 0;
+    int i_low;
+    for (i_low = 0; count_low <= anteilLow; i_low++) {
+        count_low += histogramm[i_low];
     }
+
+    int count_high = 0;
+    int j_high;
+    for(j_high = 255; count_high <= anteilHigh; j_high--) {
+        count_high += histogramm[j_high];
+    }
+
+    logFile << i_low << "   " << j_high << std::endl;
 
     int aMin = 0;
     int aMax = 255;
@@ -504,7 +515,19 @@ QImage* doRobustAutomaticContrastAdjustment(QImage * image, double plow, double 
             int rot = qRed(pixel);
             int gruen = qGreen(pixel);
             int blau = qBlue(pixel);
+            int grau = qGray(pixel);
 
+            double Y = 0.299*rot + 0.587*gruen + 0.144*blau;
+
+            if(grau <= i_low)
+            {
+                workingImage->setPixel(i, j, qRgb(0,0,0));
+            }
+
+            if(grau >= j_high)
+            {
+                workingImage->setPixel(i,j, qRgb(255,255,255));
+            }
 
         }
     }
