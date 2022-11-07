@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model discussion {
+  id                 Int                  @id @default(autoincrement()) @db.UnsignedInt
+  thema_id           Int                  @db.UnsignedInt
+  topic              String               @db.VarChar(255)
+  thema              thema                @relation(fields: [thema_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "discussion_thema_id_foreign")
+  participation_disc participation_disc[]
+
+  @@index([thema_id], map: "discussion_thema_id_foreign")
+}
+
+model participation_disc {
+  id            Int        @id @default(autoincrement()) @db.UnsignedInt
+  user_id       Int        @db.UnsignedInt
+  discussion_id Int        @db.UnsignedInt
+  discussion    discussion @relation(fields: [discussion_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "participation_disc_discussion_id_foreign")
+  user          user       @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "participation_disc_user_id_foreign")
+
+  @@index([discussion_id], map: "participation_disc_discussion_id_foreign")
+  @@index([user_id], map: "participation_disc_user_id_foreign")
+}
+
+model participation_work {
+  id          Int      @id @default(autoincrement()) @db.UnsignedInt
+  user_id     Int      @db.UnsignedInt
+  workshop_id Int      @db.UnsignedInt
+  user        user     @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "participation_work_user_id_foreign")
+  workshop    workshop @relation(fields: [workshop_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "participation_work_workshop_id_foreign")
+
+  @@index([user_id], map: "participation_work_user_id_foreign")
+  @@index([workshop_id], map: "participation_work_workshop_id_foreign")
+}
+
+model thema {
+  id         Int          @id @default(autoincrement()) @db.UnsignedInt
+  name       String       @db.VarChar(255)
+  discussion discussion[]
+  workshop   workshop[]
+}
+
+model user {
+  user_id            Int                  @id @default(autoincrement()) @db.UnsignedInt
+  username           String               @db.VarChar(255)
+  password           String               @db.VarChar(255)
+  mail               String?              @db.VarChar(255)
+  phone_number       String?              @db.VarChar(255)
+  participation_disc participation_disc[]
+  participation_work participation_work[]
+}
+
+model workshop {
+  id                 Int                  @id @default(autoincrement()) @db.UnsignedInt
+  thema_id           Int                  @db.UnsignedInt
+  name               String               @db.VarChar(255)
+  thema              thema                @relation(fields: [thema_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "workshop_thema_id_foreign")
+  participation_work participation_work[]
+
+  @@index([thema_id], map: "workshop_thema_id_foreign")
+}
