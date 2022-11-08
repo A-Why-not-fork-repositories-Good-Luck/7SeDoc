@@ -10,7 +10,7 @@ type Data = {
 
 async function main() {
     const allUsers = await prisma.user.findFirst();
-    console.log(allUsers);
+    console.log(allUsers?.username);
 }
 
 main()
@@ -27,8 +27,8 @@ export default function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-    console.log('TEST1');
+    console.log("TEST1");
     //main();
-    console.log('TEST3');
+    console.log("TEST3");
     res.status(200).json({ name: "John Doe" });
 }
