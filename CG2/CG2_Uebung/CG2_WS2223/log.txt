@@ -2,306 +2,326 @@ Logging:
 
 geladen: ../Pictures/Lenna.png
 Image characteristics calculated:
---- Average: 123 ; Variance: 2290
+--- Average: 123 ; Variance: 2291
 --- Histogram calculated: linear scaling = 1
 
 Brightness adjust applied with factor = 0
 Image characteristics calculated:
---- Average: 123 ; Variance: 2290
+--- Average: 123 ; Variance: 2291
 --- Histogram calculated: linear scaling = 1
 
 Brightness adjust applied with factor = 1
 Image characteristics calculated:
---- Average: 124 ; Variance: 2290
+--- Average: 124 ; Variance: 2291
 --- Histogram calculated: linear scaling = 1
 
 Brightness adjust applied with factor = 3
 Image characteristics calculated:
---- Average: 126 ; Variance: 2290
+--- Average: 126 ; Variance: 2291
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 5
+Brightness adjust applied with factor = 7
 Image characteristics calculated:
---- Average: 128 ; Variance: 2290
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 8
-Image characteristics calculated:
---- Average: 131 ; Variance: 2289
+--- Average: 130 ; Variance: 2290
 --- Histogram calculated: linear scaling = 1
 
 Brightness adjust applied with factor = 10
 Image characteristics calculated:
---- Average: 133 ; Variance: 2287
+--- Average: 133 ; Variance: 2288
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 13
+Brightness adjust applied with factor = 11
 Image characteristics calculated:
---- Average: 136 ; Variance: 2284
+--- Average: 134 ; Variance: 2287
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 14
+Brightness adjust applied with factor = 12
 Image characteristics calculated:
---- Average: 137 ; Variance: 2283
+--- Average: 135 ; Variance: 2287
 --- Histogram calculated: linear scaling = 1
 
 Brightness adjust applied with factor = 15
 Image characteristics calculated:
---- Average: 138 ; Variance: 2281
+--- Average: 138 ; Variance: 2283
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 24
+Brightness adjust applied with factor = 17
 Image characteristics calculated:
---- Average: 147 ; Variance: 2254
+--- Average: 140 ; Variance: 2279
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 45
+Brightness adjust applied with factor = 21
 Image characteristics calculated:
---- Average: 160 ; Variance: 2528
+--- Average: 144 ; Variance: 2267
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 57
+Brightness adjust applied with factor = 26
 Image characteristics calculated:
---- Average: 160 ; Variance: 3163
+--- Average: 149 ; Variance: 2246
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = 31
+Image characteristics calculated:
+--- Average: 154 ; Variance: 2218
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = 38
+Image characteristics calculated:
+--- Average: 160 ; Variance: 2164
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = 47
+Image characteristics calculated:
+--- Average: 168 ; Variance: 2064
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = 60
+Image characteristics calculated:
+--- Average: 179 ; Variance: 1857
 --- Histogram calculated: linear scaling = 1
 
 Brightness adjust applied with factor = 68
 Image characteristics calculated:
---- Average: 161 ; Variance: 3677
+--- Average: 185 ; Variance: 1711
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 78
+Brightness adjust applied with factor = 73
 Image characteristics calculated:
---- Average: 163 ; Variance: 4119
+--- Average: 189 ; Variance: 1617
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 86
+Brightness adjust applied with factor = 80
 Image characteristics calculated:
---- Average: 161 ; Variance: 4681
+--- Average: 194 ; Variance: 1484
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 92
+Brightness adjust applied with factor = 84
 Image characteristics calculated:
---- Average: 159 ; Variance: 5125
+--- Average: 196 ; Variance: 1408
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 99
+Brightness adjust applied with factor = 88
 Image characteristics calculated:
---- Average: 152 ; Variance: 5858
+--- Average: 199 ; Variance: 1330
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 104
+Brightness adjust applied with factor = 96
 Image characteristics calculated:
---- Average: 145 ; Variance: 6377
+--- Average: 204 ; Variance: 1174
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 111
+Brightness adjust applied with factor = 105
 Image characteristics calculated:
---- Average: 137 ; Variance: 6836
+--- Average: 210 ; Variance: 990
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 124
+Brightness adjust applied with factor = 109
 Image characteristics calculated:
---- Average: 124 ; Variance: 7168
+--- Average: 212 ; Variance: 909
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 138
+Brightness adjust applied with factor = 114
 Image characteristics calculated:
---- Average: 111 ; Variance: 6888
+--- Average: 214 ; Variance: 810
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 145
+Brightness adjust applied with factor = 123
 Image characteristics calculated:
---- Average: 109 ; Variance: 6693
+--- Average: 219 ; Variance: 636
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 152
+Brightness adjust applied with factor = 135
 Image characteristics calculated:
---- Average: 105 ; Variance: 6410
+--- Average: 223 ; Variance: 435
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 157
+Brightness adjust applied with factor = 148
 Image characteristics calculated:
---- Average: 101 ; Variance: 6081
+--- Average: 227 ; Variance: 262
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 161
+Brightness adjust applied with factor = 162
 Image characteristics calculated:
---- Average: 99 ; Variance: 5810
+--- Average: 231 ; Variance: 135
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 166
+Brightness adjust applied with factor = 176
 Image characteristics calculated:
---- Average: 98 ; Variance: 5540
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 172
-Image characteristics calculated:
---- Average: 98 ; Variance: 5256
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 179
-Image characteristics calculated:
---- Average: 98 ; Variance: 4947
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 191
-Image characteristics calculated:
---- Average: 100 ; Variance: 4447
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 203
-Image characteristics calculated:
---- Average: 97 ; Variance: 3653
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 213
-Image characteristics calculated:
---- Average: 89 ; Variance: 2555
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 218
-Image characteristics calculated:
---- Average: 89 ; Variance: 2251
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 226
-Image characteristics calculated:
---- Average: 94 ; Variance: 2189
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 234
-Image characteristics calculated:
---- Average: 101 ; Variance: 2253
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 241
-Image characteristics calculated:
---- Average: 108 ; Variance: 2282
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 242
-Image characteristics calculated:
---- Average: 109 ; Variance: 2284
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 245
-Image characteristics calculated:
---- Average: 112 ; Variance: 2288
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 250
-Image characteristics calculated:
---- Average: 117 ; Variance: 2290
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 256
-Image characteristics calculated:
---- Average: 123 ; Variance: 2290
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = 254
-Image characteristics calculated:
---- Average: 121 ; Variance: 2290
+--- Average: 233 ; Variance: 68
 --- Histogram calculated: linear scaling = 1
 
 Brightness adjust applied with factor = 185
 Image characteristics calculated:
---- Average: 99 ; Variance: 4694
+--- Average: 235 ; Variance: 42
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 153
+Brightness adjust applied with factor = 195
 Image characteristics calculated:
---- Average: 105 ; Variance: 6353
+--- Average: 236 ; Variance: 29
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 122
+Brightness adjust applied with factor = 197
 Image characteristics calculated:
---- Average: 126 ; Variance: 7157
+--- Average: 236 ; Variance: 28
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 104
+Brightness adjust applied with factor = 196
 Image characteristics calculated:
---- Average: 145 ; Variance: 6377
+--- Average: 236 ; Variance: 29
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 87
+Brightness adjust applied with factor = 172
 Image characteristics calculated:
---- Average: 161 ; Variance: 4748
+--- Average: 233 ; Variance: 81
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 65
+Brightness adjust applied with factor = 138
 Image characteristics calculated:
---- Average: 161 ; Variance: 3563
+--- Average: 224 ; Variance: 390
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 42
+Brightness adjust applied with factor = 94
 Image characteristics calculated:
---- Average: 160 ; Variance: 2375
+--- Average: 203 ; Variance: 1213
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 23
+Brightness adjust applied with factor = 51
 Image characteristics calculated:
---- Average: 146 ; Variance: 2258
+--- Average: 171 ; Variance: 2007
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = 3
+Brightness adjust applied with factor = 10
 Image characteristics calculated:
---- Average: 126 ; Variance: 2290
---- Histogram calculated: linear scaling = 1
-
-Brightness adjust applied with factor = -16
-Image characteristics calculated:
---- Average: 107 ; Variance: 2280
+--- Average: 133 ; Variance: 2288
 --- Histogram calculated: linear scaling = 1
 
 Brightness adjust applied with factor = -33
 Image characteristics calculated:
---- Average: 92 ; Variance: 2179
+--- Average: 91 ; Variance: 2147
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = -53
+Brightness adjust applied with factor = -80
 Image characteristics calculated:
---- Average: 97 ; Variance: 3653
+--- Average: 53 ; Variance: 1228
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = -71
+Brightness adjust applied with factor = -129
 Image characteristics calculated:
---- Average: 99 ; Variance: 4694
+--- Average: 28 ; Variance: 334
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = -91
+Brightness adjust applied with factor = -157
 Image characteristics calculated:
---- Average: 98 ; Variance: 5590
+--- Average: 21 ; Variance: 99
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = -114
+Brightness adjust applied with factor = -178
 Image characteristics calculated:
---- Average: 110 ; Variance: 6782
+--- Average: 18 ; Variance: 32
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = -133
+Brightness adjust applied with factor = -193
 Image characteristics calculated:
---- Average: 125 ; Variance: 7165
+--- Average: 17 ; Variance: 22
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = -149
+Brightness adjust applied with factor = -206
 Image characteristics calculated:
---- Average: 142 ; Variance: 6594
+--- Average: 16 ; Variance: 25
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = -169
+Brightness adjust applied with factor = -220
 Image characteristics calculated:
---- Average: 161 ; Variance: 4748
+--- Average: 16 ; Variance: 26
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = -197
+Brightness adjust applied with factor = -230
 Image characteristics calculated:
---- Average: 160 ; Variance: 3262
+--- Average: 16 ; Variance: 26
 --- Histogram calculated: linear scaling = 1
 
-Brightness adjust applied with factor = -224
+Brightness adjust applied with factor = -238
 Image characteristics calculated:
---- Average: 154 ; Variance: 2232
+--- Average: 16 ; Variance: 26
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -239
+Image characteristics calculated:
+--- Average: 16 ; Variance: 26
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -237
+Image characteristics calculated:
+--- Average: 16 ; Variance: 26
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -205
+Image characteristics calculated:
+--- Average: 16 ; Variance: 25
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -200
+Image characteristics calculated:
+--- Average: 17 ; Variance: 22
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -203
+Image characteristics calculated:
+--- Average: 16 ; Variance: 24
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -244
+Image characteristics calculated:
+--- Average: 16 ; Variance: 26
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -256
+Image characteristics calculated:
+--- Average: 16 ; Variance: 26
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -254
+Image characteristics calculated:
+--- Average: 16 ; Variance: 26
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -191
+Image characteristics calculated:
+--- Average: 17 ; Variance: 22
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -129
+Image characteristics calculated:
+--- Average: 28 ; Variance: 334
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -74
+Image characteristics calculated:
+--- Average: 57 ; Variance: 1366
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -36
+Image characteristics calculated:
+--- Average: 88 ; Variance: 2110
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = -15
+Image characteristics calculated:
+--- Average: 108 ; Variance: 2283
+--- Histogram calculated: linear scaling = 1
+
+Brightness adjust applied with factor = 6
+Image characteristics calculated:
+--- Average: 129 ; Variance: 2290
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 123 ; Variance: 2291
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 123 ; Variance: 2291
 --- Histogram calculated: linear scaling = 1
 

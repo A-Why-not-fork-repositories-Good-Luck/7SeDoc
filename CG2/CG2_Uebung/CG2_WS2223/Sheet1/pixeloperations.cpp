@@ -85,6 +85,8 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
             int blau = qBlue(pixel);
             double Y = 0.299*rot+0.587*gruen+0.114*blau;
             average_ref += Y; //qGray wandelt in Graustufe um / Intensität
+
+            image->setPixel(i, j, RgbToYCbCr(pixel));
         }
     }
     average_ref /= pixel_count; //Durchschnitt ziehen
@@ -97,7 +99,7 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
             int rot = qRed(pixel);
             int gruen = qGreen(pixel);
             int blau = qBlue(pixel);
-            int Y = 0.299*rot+0.587*gruen+0.114*blau;
+            int Y = qRed(pixel);
             variance_ref += (Y-average_ref) * (Y-average_ref);
             histogram_ref[Y] ++;
         }
