@@ -19,8 +19,8 @@ constexpr QRgb RgbToYCbCr(QRgb pixel_Rgb) {
     int g = qGreen(pixel_Rgb);
     int b = qBlue(pixel_Rgb);
     int Y = round(0.299*(double)r + 0.587*(double)g + 0.114*(double)b);
-    int Cb = round(-0.169*(double)r - 0.331*(double)g + 0.5*(double)b + 128);
-    int Cr = round(0.5*(double)r - 0.419*(double)g - 0.081*(double)b + 128);
+    int Cb = round(-0.169*(double)r - 0.331*(double)g + 0.5*(double)b + 127);
+    int Cr = round(0.5*(double)r - 0.419*(double)g - 0.081*(double)b + 127);
 
     Y = new_clipped_value(Y);
     Cb = new_clipped_value(Cb);
@@ -36,9 +36,9 @@ constexpr QRgb YCbCrToRgb(QRgb pixel_YCbCr) {
     int Cb = qGreen(pixel_YCbCr);
     int Cr = qBlue(pixel_YCbCr);
 
-    int r = round((double)Y + 1.4*((double)Cr-128));
-    int g = round((double)Y - 0.343*((double)Cb-128) - 0.711*((double)Cr-128));
-    int b = round((double)Y + 1.765*((double)Cb-128));
+    int r = round((double)Y + 1.4*((double)Cr-127));
+    int g = round((double)Y - 0.343*((double)Cb-127) - 0.711*((double)Cr-127));
+    int b = round((double)Y + 1.765*((double)Cb-127));
 
     r = new_clipped_value(r);
     g = new_clipped_value(g);
@@ -79,14 +79,13 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
     for (int i = 0; i < image->width(); i++) {
         for (int j = 0; j < image->height(); j++) {
             QRgb pixel = image->pixel(i, j);
-            //image->setPixel(i,j,qRgb(qGray(pixel),qGray(pixel),qGray(pixel)));
-            int rot = qRed(pixel);
-            int gruen = qGreen(pixel);
-            int blau = qBlue(pixel);
-            double Y = 0.299*rot+0.587*gruen+0.114*blau;
-            average_ref += Y; //qGray wandelt in Graustufe um / Intensität
-
             image->setPixel(i, j, RgbToYCbCr(pixel));
+            pixel = image->pixel(i, j);
+            //image->setPixel(i,j,qRgb(qGray(pixel),qGray(pixel),qGray(pixel)));
+            int Y = qRed(pixel);
+            average_ref += Y;
+
+
         }
     }
     average_ref /= pixel_count; //Durchschnitt ziehen
@@ -367,8 +366,7 @@ QImage* adjustBrightness(QImage * image, int brightness_adjust_factor) {
     {
         for(int j=0;j<image->height();j++)
         {
-            QRgb pixel_Rgb = workingImage->pixel(i, j);
-            QRgb pixel_YCbCr = RgbToYCbCr(pixel_Rgb);
+            QRgb pixel_YCbCr = workingImage->pixel(i, j);
 
             int Y = qRed(pixel_YCbCr);
             int Cb = qGreen(pixel_YCbCr);
@@ -377,9 +375,8 @@ QImage* adjustBrightness(QImage * image, int brightness_adjust_factor) {
             Y = new_clipped_value_brightness(Y, brightness_adjust_factor);
 
             QRgb newPixel_YCbCr = qRgb(Y, Cb, Cr);
-            QRgb newPixel_Rgb = YCbCrToRgb(newPixel_YCbCr);
 
-            workingImage->setPixel(i, j, newPixel_Rgb);
+            workingImage->setPixel(i, j, newPixel_YCbCr);
         }
     }
 
