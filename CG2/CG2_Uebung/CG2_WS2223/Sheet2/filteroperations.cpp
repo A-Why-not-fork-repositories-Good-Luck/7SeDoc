@@ -1,6 +1,50 @@
 #include "filteroperations.h"
 #include "imageviewer-qt5.h"
 
+constexpr int new_clipped_value (int pixel_value){
+    if(pixel_value > 255){
+        pixel_value = 255;
+    }
+    else if(pixel_value < 0){
+        pixel_value = 0;
+    }
+    return pixel_value;
+}
+
+constexpr QRgb RgbToYCbCr(QRgb pixel_Rgb) {
+    int r = qRed(pixel_Rgb);
+    int g = qGreen(pixel_Rgb);
+    int b = qBlue(pixel_Rgb);
+    int Y = round(0.299*(double)r + 0.587*(double)g + 0.114*(double)b);
+    int Cb = round(-0.169*(double)r - 0.331*(double)g + 0.5*(double)b + 127.0);
+    int Cr = round(0.5*(double)r - 0.419*(double)g - 0.081*(double)b + 127.0);
+
+    Y = new_clipped_value(Y);
+    Cb = new_clipped_value(Cb);
+    Cr = new_clipped_value(Cr);
+
+    QRgb pixel_YCbCr = qRgb(Y, Cb, Cr);
+
+    return pixel_YCbCr;
+}
+
+constexpr QRgb YCbCrToRgb(QRgb pixel_YCbCr) {
+    int Y = qRed(pixel_YCbCr);
+    int Cb = qGreen(pixel_YCbCr);
+    int Cr = qBlue(pixel_YCbCr);
+
+    int r = round((double)Y + 1.4*((double)Cr-127.0));
+    int g = round((double)Y - 0.343*((double)Cb-127.0) - 0.711*((double)Cr-127.0));
+    int b = round((double)Y + 1.765*((double)Cb-127.0));
+
+    r = new_clipped_value(r);
+    g = new_clipped_value(g);
+    b = new_clipped_value(b);
+
+    QRgb pixel_Rgb = qRgb(r, g, b);
+
+    return pixel_Rgb;
+}
 
 namespace cg2 {
 

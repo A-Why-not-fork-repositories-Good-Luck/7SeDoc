@@ -19,8 +19,8 @@ constexpr QRgb RgbToYCbCr(QRgb pixel_Rgb) {
     int g = qGreen(pixel_Rgb);
     int b = qBlue(pixel_Rgb);
     int Y = round(0.299*(double)r + 0.587*(double)g + 0.114*(double)b);
-    int Cb = round(-0.169*(double)r - 0.331*(double)g + 0.5*(double)b + 127);
-    int Cr = round(0.5*(double)r - 0.419*(double)g - 0.081*(double)b + 127);
+    int Cb = round(-0.169*(double)r - 0.331*(double)g + 0.5*(double)b + 127.0);
+    int Cr = round(0.5*(double)r - 0.419*(double)g - 0.081*(double)b + 127.0);
 
     Y = new_clipped_value(Y);
     Cb = new_clipped_value(Cb);
@@ -36,9 +36,9 @@ constexpr QRgb YCbCrToRgb(QRgb pixel_YCbCr) {
     int Cb = qGreen(pixel_YCbCr);
     int Cr = qBlue(pixel_YCbCr);
 
-    int r = round((double)Y + 1.4*((double)Cr-127));
-    int g = round((double)Y - 0.343*((double)Cb-127) - 0.711*((double)Cr-127));
-    int b = round((double)Y + 1.765*((double)Cb-127));
+    int r = round((double)Y + 1.4*((double)Cr-127.0));
+    int g = round((double)Y - 0.343*((double)Cb-127.0) - 0.711*((double)Cr-127.0));
+    int b = round((double)Y + 1.765*((double)Cb-127.0));
 
     r = new_clipped_value(r);
     g = new_clipped_value(g);
@@ -79,13 +79,12 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
     for (int i = 0; i < image->width(); i++) {
         for (int j = 0; j < image->height(); j++) {
             QRgb pixel = image->pixel(i, j);
-            image->setPixel(i, j, RgbToYCbCr(pixel));
-            pixel = image->pixel(i, j);
             //image->setPixel(i,j,qRgb(qGray(pixel),qGray(pixel),qGray(pixel)));
-            int Y = qRed(pixel);
+            int r = qRed(pixel);
+            int g = qGreen(pixel);
+            int b = qBlue(pixel);
+            int Y = round(0.299*(double)r + 0.587*(double)g + 0.114*(double)b);
             average_ref += Y;
-
-
         }
     }
     average_ref /= pixel_count; //Durchschnitt ziehen
@@ -95,10 +94,10 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
         for (int j = 0; j < image->height(); j++) {
             QRgb pixel = image->pixel(i, j);
 
-            int rot = qRed(pixel);
-            int gruen = qGreen(pixel);
-            int blau = qBlue(pixel);
-            int Y = qRed(pixel);
+            int r = qRed(pixel);
+            int g = qGreen(pixel);
+            int b = qBlue(pixel);
+            int Y = round(0.299*(double)r + 0.587*(double)g + 0.114*(double)b);
             variance_ref += (Y-average_ref) * (Y-average_ref);
             histogram_ref[Y] ++;
         }
@@ -145,187 +144,30 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
      */
 QImage* changeImageDynamic(QImage * image, int newDynamicValue) {
     workingImage = new QImage(*backupImage);
-    //image = workingImage;
-
-    //    int s = pow(2, newDynamicValue);
-    //    double intervall = 255.0/(s-1);
-
-    //    double* values = new double[s];
-    //    values[0] = 0;
-    //    for(int i = 1; i < s; i++) {
-    //        values[i] = values[i-1] + intervall;
-    //    }
-    //    //    for(int i = 0; i < s; i++) {
-    //    //        logFile << values[i] << std::endl;
-    //    //    }
-    //    //    logFile << "Anzahl möglicher Werte: " << s << "   Intervall: " << intervall << std::endl;
-
-
-    //    double prot;
-    //    double pgruen;
-    //    double pblau;
-
-    //    for (int i = 0; i < workingImage->width(); i++) {
-    //        for (int j = 0; j < workingImage->height(); j++) {
-    //            for (int l = 0; l < s; l++) {
-
-    //                QRgb pixel = workingImage->pixel(i,j);
-    //                prot = qRed(pixel);
-    //                pgruen = qGreen(pixel);
-    //                pblau = qBlue(pixel);
-
-    //                for(int k = 0; k < s; i++) {
-
-    //                    if (prot >= values[k] - (intervall/2) && prot <= values[k] + (intervall/2)) {
-    //                        prot = values[k];
-    //                    }
-    //                    if (pgruen >= values[k] - (intervall/2) && pgruen <= values[k] + (intervall/2)) {
-    //                        pgruen = values[k];
-    //                    }
-    //                    if (pblau >= values[k] - (intervall/2) && pblau <= values[k] + (intervall/2)) {
-    //                        pblau = values[k];
-    //                    }
-
-    //                }
-
-    //                workingImage->setPixel(i, j, qRgb(prot, pgruen, pblau));
-    //            }
-
-    //        }
-    //    }
-
-    int max_r = 0;
-    int min_r = 256;
-    int max_g = 0;
-    int min_g = 256;
-    int max_b = 0;
-    int min_b = 256;
-    for(int i=0;i<image->width();i++)
-    {
-        for(int j=0;j<image->height();j++)
-        {
-            QRgb pixel = workingImage->pixel(i, j);
-            int rot = qRed(pixel);
-            int gruen = qGreen(pixel);
-            int blau = qBlue(pixel);
-
-            if (rot > max_r) {
-                max_r = rot;
-            }
-            if (rot < min_r) {
-                min_r = rot;
-            }
-
-            if (gruen > max_g) {
-                max_g = gruen;
-            }
-            if (gruen < min_g) {
-                min_g = gruen;
-            }
-
-            if (blau > max_b) {
-                max_b = blau;
-            }
-            if (blau < min_b) {
-                min_b = blau;
-            }
-        }
-    }
-
-    int mid_r = (int) ((double)(max_r - min_r) / 2 + min_r + 0.5);
-    int mid_g = (int) ((double)(max_g - min_g) / 2 + min_g + 0.5);
-    int mid_b = (int) ((double)(max_b -  min_b) / 2 + min_b + 0.5);
-
-
 
     double faktor = pow(2, newDynamicValue)/256;
-    int faktorKehr = 1/faktor;
-    int middle = pow(2, newDynamicValue)/2;
+    int intervall = (int)(255.0/(pow(2, (double)newDynamicValue)-1));
     for(int i=0;i<workingImage->width();i++)
     {
         for(int j=0;j<workingImage->height();j++)
         {
             QRgb pixel = workingImage->pixel(i,j);
+            pixel = RgbToYCbCr(pixel);
+            int Y = qRed(pixel);
+            int Cb = qGreen(pixel);
+            int Cr = qBlue(pixel);
 
-            double prot = qRed(pixel);
-            double pgruen = qGreen(pixel);
-            double pblau = qBlue(pixel);
-            double grau = qGray(pixel);
+            Y += intervall/2;
+            Y /= intervall;
+            Y *= intervall;
+            Y = new_clipped_value(Y);
 
-//            prot -= mid_r;
-//            pgruen -= mid_g;
-//            pblau -= mid_b;
+            pixel = qRgb(Y, Cb, Cr);
 
-            prot *= faktor;
-            pgruen *= faktor;
-            pblau *= faktor;
-
-            if (prot >= middle) {
-                prot = ceil(prot);
-            } else if (prot <= middle) {
-                prot = floor(prot);
-            }
-            if (pgruen >= middle) {
-                pgruen = ceil(prot);
-            } else if (pgruen <= middle) {
-                pgruen = floor(prot);
-            }
-            if (pblau >= middle) {
-                pblau = ceil(prot);
-            } else if (pblau <= middle) {
-                pblau = floor(prot);
-            }
-
-            prot *= faktorKehr;
-            pgruen *= faktorKehr;
-            pblau *= faktorKehr;
-
-//            prot += mid_r;
-//            pgruen += mid_g;
-//            pblau += mid_b;
-
-            prot = new_clipped_value(prot);
-            pgruen = new_clipped_value(pgruen);
-            pblau = new_clipped_value(pblau);
-
-            workingImage->setPixel(i, j, qRgb(prot, pgruen, pblau));
-
+            pixel = YCbCrToRgb(pixel);
+            workingImage->setPixel(i, j, pixel);
         }
     }
-
-    //    int felder = 256/pow(2, newDynamicValue);
-    //    std::cout << felder << std::endl;
-    //    for (int i = 0; i < image->width(); i++) {
-    //        for (int j = 0; j < image->height(); j++) {
-
-    //            QRgb pixel = image->pixel(i, j);
-    //            int prot = qRed(pixel);
-    //            int pgruen = qGreen(pixel);
-    //            int pblau = qBlue(pixel);
-    //            int grau = qGray(pixel);
-    //            int zahl = grau%felder;
-    //            int faktor;
-
-    //            if(zahl > (felder/2)){
-    //                faktor = (felder - zahl);
-    //            } else {
-    //                faktor = zahl * (-1);
-    //            }
-    //            //std::cout <<"Felder: "<< felder << "Zahl: " << zahl << "Faktor:" << faktor << std::endl;
-    //            int rot = prot + faktor*0.299;
-    //            int gruen = pgruen + faktor*0.587;
-    //            int blau = pblau  + faktor * 0.114;
-    //            image->setPixel(i, j, qRgb(rot,gruen,blau));
-
-
-    //            //std::cout << "Aus rot: " <<  prot  << " wurde " << rot << " " << gruen << " " << blau << " " << grau << std::endl;
-
-    //            // pixel setter in image with qRgb
-    //            // note that qRgb values must be in [0,255]
-    //            //image->setPixel(i, j, qRgb(rot,gruen,blau));
-    //        }
-    //    }
-
 
     logFile << "Dynamik des Bildes geändert auf: " + std::to_string(newDynamicValue) + " Bit" << std::endl;
     return workingImage;
@@ -366,17 +208,21 @@ QImage* adjustBrightness(QImage * image, int brightness_adjust_factor) {
     {
         for(int j=0;j<image->height();j++)
         {
-            QRgb pixel_YCbCr = workingImage->pixel(i, j);
-
-            int Y = qRed(pixel_YCbCr);
-            int Cb = qGreen(pixel_YCbCr);
-            int Cr = qBlue(pixel_YCbCr);
+            QRgb pixel = workingImage->pixel(i, j);
+            //            int rot = new_clipped_value_brightness(qRed(pixel), brightness_adjust_factor);
+            //            int gruen = new_clipped_value_brightness(qGreen(pixel), brightness_adjust_factor);
+            //            int blau = new_clipped_value_brightness(qBlue(pixel), brightness_adjust_factor);
+            pixel = RgbToYCbCr(pixel);
+            int Y = qRed(pixel);
+            int Cb = qGreen(pixel);
+            int Cr = qBlue(pixel);
 
             Y = new_clipped_value_brightness(Y, brightness_adjust_factor);
 
-            QRgb newPixel_YCbCr = qRgb(Y, Cb, Cr);
+            pixel = qRgb(Y, Cb, Cr);
 
-            workingImage->setPixel(i, j, newPixel_YCbCr);
+            pixel = YCbCrToRgb(pixel);
+            workingImage->setPixel(i, j, pixel);
         }
     }
 
@@ -397,7 +243,7 @@ QImage* adjustBrightness(QImage * image, int brightness_adjust_factor) {
      */
 QImage* adjustContrast(QImage * image, double contrast_adjust_factor){
     workingImage = new QImage(*backupImage);
-
+    /*
     int max_r = 0;
     int min_r = 256;
     int max_g = 0;
@@ -443,33 +289,59 @@ QImage* adjustContrast(QImage * image, double contrast_adjust_factor){
     logFile << min_r << ", " << max_r << ", " << mid_r << std::endl;
     logFile << min_g << ", " << max_g << ", " << mid_g << std::endl;
     logFile << min_b << ", " << max_b << ", " << mid_b << std::endl;
+*/
+    int min;
+    int max;
+    for (int i = 0; i < 256; i++) {
+        if(histogramm[i] != NULL) {
+            min = i;
+            break;
+        }
+    }
+    for (int i = 255; i >= 0; i--) {
+        if(histogramm[i] != NULL) {
+            max = i;
+            break;
+        }
+    }
+    //logFile << min << "   " << max << std::endl;
+    int mid = (int)((double)(max - min)/2 + min + 0.5);
 
     for(int i=0;i<image->width();i++)
     {
         for(int j=0;j<image->height();j++)
         {
             QRgb pixel = workingImage->pixel(i, j);
-            int rot = qRed(pixel);
-            int gruen = qGreen(pixel);
-            int blau = qBlue(pixel);
+            pixel = RgbToYCbCr(pixel);
+            int Y = qRed(pixel);
+            int Cb = qGreen(pixel);
+            int Cr = qBlue(pixel);
 
-            rot -= mid_r;
-            gruen -= mid_g;
-            blau -= mid_b;
+            Y -= mid;
+            Y = (int)(((double)Y * (double)contrast_adjust_factor) + 0.5);
+            Y += mid;
+            Y = new_clipped_value(Y);
 
-            rot = (int) (rot * contrast_adjust_factor + 0.5);
-            gruen = (int) (gruen * contrast_adjust_factor + 0.5);
-            blau = (int) (blau * contrast_adjust_factor + 0.5);
+            pixel = qRgb(Y, Cb, Cr);
+            pixel = YCbCrToRgb(pixel);
+            workingImage->setPixel(i, j, pixel);
+            //            rot -= mid_r;
+            //            gruen -= mid_g;
+            //            blau -= mid_b;
 
-            rot += mid_r;
-            gruen += mid_g;
-            blau += mid_b;
+            //            rot = (int) (rot * contrast_adjust_factor + 0.5);
+            //            gruen = (int) (gruen * contrast_adjust_factor + 0.5);
+            //            blau = (int) (blau * contrast_adjust_factor + 0.5);
 
-            rot = new_clipped_value(rot);
-            gruen = new_clipped_value(gruen);
-            blau = new_clipped_value(blau);
+            //            rot += mid_r;
+            //            gruen += mid_g;
+            //            blau += mid_b;
 
-            workingImage->setPixel(i, j, qRgb(rot,gruen,blau));
+            //            rot = new_clipped_value(rot);
+            //            gruen = new_clipped_value(gruen);
+            //            blau = new_clipped_value(blau);
+
+            //            workingImage->setPixel(i, j, qRgb(rot,gruen,blau));
         }
     }
 

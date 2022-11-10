@@ -2,110 +2,18 @@ Logging:
 
 geladen: ../Pictures/Lenna.png
 Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 124 ; Variance: 2290
 --- Histogram calculated: linear scaling = 1
 
-0.01   0.01
-103   155
-Robust automatic contrast adjustment applied with:
----plow = 1%
----phigh = 1%
+Filter read:
+1 | 1 | 1
+1 | 1 | 1
+1 | 1 | 1
+filter applied:
+---border treatment: Zentralbereich
+---filter width: 3
+---filter height: 3
 Image characteristics calculated:
---- Average: 129 ; Variance: -6376
---- Histogram calculated: linear scaling = 1
-
-Reset Image
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-0.01   0.01
-103   155
-Robust automatic contrast adjustment applied with:
----plow = 1%
----phigh = 1%
-Image characteristics calculated:
---- Average: 129 ; Variance: -6376
---- Histogram calculated: linear scaling = 1
-
-Reset Image
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-0.01   0.01
-103   155
-Robust automatic contrast adjustment applied with:
----plow = 1%
----phigh = 1%
-Image characteristics calculated:
---- Average: 129 ; Variance: -6376
---- Histogram calculated: linear scaling = 1
-
-Reset Image
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-0.01   0.01
-103   155
-Robust automatic contrast adjustment applied with:
----plow = 1%
----phigh = 1%
-Image characteristics calculated:
---- Average: 129 ; Variance: -6376
---- Histogram calculated: linear scaling = 1
-
-Reset Image
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-0.01   0.01
-103   155
-Robust automatic contrast adjustment applied with:
----plow = 1%
----phigh = 1%
-Image characteristics calculated:
---- Average: 129 ; Variance: -6376
---- Histogram calculated: linear scaling = 1
-
-Reset Image
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-0.01   0.01
-103   155
-Robust automatic contrast adjustment applied with:
----plow = 1%
----phigh = 1%
-Image characteristics calculated:
---- Average: 129 ; Variance: -6376
---- Histogram calculated: linear scaling = 1
-
-Reset Image
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-Reset Image
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-Reset Image
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-Reset Image
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
---- Histogram calculated: linear scaling = 1
-
-Reset Image
-Image characteristics calculated:
---- Average: 127 ; Variance: 2172
+--- Average: 124 ; Variance: 2290
 --- Histogram calculated: linear scaling = 1
 
