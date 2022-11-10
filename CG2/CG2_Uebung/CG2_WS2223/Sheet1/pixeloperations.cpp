@@ -104,6 +104,11 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
     }
     variance_ref /= pixel_count;
 
+    for (int i = 0; i < 256; i++)
+    {
+        histogramm_unscaled[i] = histogram_ref[i];
+    }
+
     //Skalierung linear oder logarithmisch
     if (linear_scaling) {
         double linear_scale = 0;
@@ -366,86 +371,107 @@ QImage* adjustContrast(QImage * image, double contrast_adjust_factor){
 QImage* doRobustAutomaticContrastAdjustment(QImage * image, double plow, double phigh){
     workingImage = new QImage(*backupImage);
 
-    int high_r = 0;
-    int low_r = 256;
-    int high_g = 0;
-    int low_g = 256;
-    int high_b = 0;
-    int low_b = 256;
-    for(int i=0;i<image->width();i++)
-    {
-        for(int j=0;j<image->height();j++)
-        {
-            QRgb pixel = workingImage->pixel(i, j);
-            int rot = qRed(pixel);
-            int gruen = qGreen(pixel);
-            int blau = qBlue(pixel);
+//    int high_r = 0;
+//    int low_r = 256;
+//    int high_g = 0;
+//    int low_g = 256;
+//    int high_b = 0;
+//    int low_b = 256;
+//    for(int i=0;i<image->width();i++)
+//    {
+//        for(int j=0;j<image->height();j++)
+//        {
+//            QRgb pixel = workingImage->pixel(i, j);
+//            int rot = qRed(pixel);
+//            int gruen = qGreen(pixel);
+//            int blau = qBlue(pixel);
 
-            if (rot > high_r) {
-                high_r = rot;
-            }
-            if (rot < low_r) {
-                low_r = rot;
-            }
+//            if (rot > high_r) {
+//                high_r = rot;
+//            }
+//            if (rot < low_r) {
+//                low_r = rot;
+//            }
 
-            if (gruen > high_g) {
-                high_g = gruen;
-            }
-            if (gruen < low_g) {
-                low_g = gruen;
-            }
+//            if (gruen > high_g) {
+//                high_g = gruen;
+//            }
+//            if (gruen < low_g) {
+//                low_g = gruen;
+//            }
 
-            if (blau > high_b) {
-                high_b = blau;
-            }
-            if (blau < low_b) {
-                low_b = blau;
-            }
-        }
-    }
+//            if (blau > high_b) {
+//                high_b = blau;
+//            }
+//            if (blau < low_b) {
+//                low_b = blau;
+//            }
+//        }
+//    }
 
-    logFile << phigh << "   " << plow << std::endl;
+//    logFile << phigh << "   " << plow << std::endl;
 
     double anteilLow = workingImage->width() * workingImage->height() * plow;
     double anteilHigh = workingImage->width() * workingImage->height() * phigh;
 
     int count_low = 0;
-    int i_low;
-    for (i_low = 0; count_low <= anteilLow; i_low++) {
-        count_low += histogramm[i_low];
+    int low;
+    for (low = 0; count_low < anteilLow; low++) {
+        count_low += histogramm_unscaled[low];
     }
 
     int count_high = 0;
-    int j_high;
-    for(j_high = 255; count_high <= anteilHigh; j_high--) {
-        count_high += histogramm[j_high];
+    int high;
+    for(high = 255; count_high < anteilHigh; high--) {
+        count_high += histogramm_unscaled[high];
     }
 
-    logFile << i_low << "   " << j_high << std::endl;
+    logFile << low << "   " << high << std::endl;
 
-    int aMin = 0;
-    int aMax = 255;
+    int min = 0;
+    int max = 255;
     for(int i=0;i<workingImage->width();i++)
     {
         for(int j=0;j<workingImage->height();j++)
         {
             QRgb pixel = workingImage->pixel(i, j);
-            int rot = qRed(pixel);
-            int gruen = qGreen(pixel);
-            int blau = qBlue(pixel);
-            int grau = qGray(pixel);
+            pixel = RgbToYCbCr(pixel);
+            int Y = qRed(pixel);
+            int Cb = qGreen(pixel);
+            int Cr = qBlue(pixel);
 
-            double Y = 0.299*rot + 0.587*gruen + 0.144*blau;
-
-            if(grau <= i_low)
+            if (Y <= low)
             {
-                workingImage->setPixel(i, j, qRgb(0,0,0));
+                Y = min;
+            }
+            else if (Y >= high)
+            {
+                Y = max;
+            }
+            else if (Y > low && Y < high)
+            {
+                Y = (int) (min + (double)((double)(Y - low) * (double)((double)(max-min)/(double)(high-low))) + 0.5);
             }
 
-            if(grau >= j_high)
-            {
-                workingImage->setPixel(i,j, qRgb(255,255,255));
-            }
+            pixel = qRgb(Y, Cb, Cr);
+            pixel = YCbCrToRgb(pixel);
+            workingImage->setPixel(i, j, pixel);
+//            int rot = qRed(pixel);
+//            int gruen = qGreen(pixel);
+//            int blau = qBlue(pixel);
+//            int grau = qGray(pixel);
+
+//            double Y = 0.299*rot + 0.587*gruen + 0.144*blau;
+
+//            if(grau <= i_low)
+//            {
+//                workingImage->setPixel(i, j, qRgb(0,0,0));
+//            }
+
+//            if(grau >= high)
+//            {
+//                workingImage->setPixel(i,j, qRgb(255,255,255));
+//            }
 
         }
     }
