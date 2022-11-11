@@ -9,8 +9,8 @@ type Data = {
 };
 
 async function main() {
-    const allUsers = await prisma.user.findFirst();
-    console.log(allUsers?.username);
+    const allUsers = await prisma.user.findMany();
+    console.log(allUsers);
 }
 
 main()
@@ -27,8 +27,8 @@ export default function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-    console.log("TEST1");
-    //main();
-    console.log("TEST3");
+    //console.log("TEST1");
+    main();
+    //console.log("TEST3");
     res.status(200).json({ name: "John Doe" });
 }
