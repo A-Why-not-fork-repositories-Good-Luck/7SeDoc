@@ -48,7 +48,7 @@ constexpr QRgb YCbCrToRgb(QRgb pixel_YCbCr) {
 
 namespace cg2 {
 
-    /**
+/**
      * @brief filterImage
      *      calculate the 2D filter over the image
      *      handle border treatment as desired
@@ -68,42 +68,565 @@ namespace cg2 {
      *      3: Gespiegelte Randbedingung
      * @return new Image to show in GUI
      */
-    QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_height, int border_treatment) {
+QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_height, int border_treatment) {
+    QImage* image_copy = new QImage(*image);
 
-        logFile << "Filter read:" << std::endl;
-        for(int i = 0; i < filter_height; i++ ){
-            for(int j = 0; j < filter_width; j++ ){
-                logFile << filter[i][j];
-                if(j < (filter_width-1)){
-                    logFile << " | ";
+    double s = 0;
+    logFile << "Filter read:" << std::endl;
+    for(int i = 0; i < filter_height; i++ ){
+        for(int j = 0; j < filter_width; j++ ){
+            logFile << filter[i][j];
+            if(j < (filter_width-1)){
+                logFile << " | ";
+            }
+            s += filter[i][j];
+        }
+        logFile << std::endl;
+    }
+    s = 1/s;
+
+    int L = filter_width/2;
+    int K = filter_height/2;
+    for (int u = L; u < image->width()-L; u++)
+    {
+        for (int v = K; v < image->height()-K; v++)
+        {
+            int sum = 0;
+            QRgb pixel = image_copy->pixel(u, v);
+            pixel = RgbToYCbCr(pixel);
+            int Cb = qGreen(pixel);
+            int Cr = qBlue(pixel);
+            for (int i = -L; i <= L; i++)
+            {
+                for (int j = -K; j <= K; j++)
+                {
+                    QRgb p = image_copy->pixel(u+i, v+j);
+                    p = RgbToYCbCr(p);
+                    int Y = qRed(p);
+                    int c = filter[j+K][i+L];
+                    sum += c * Y;
                 }
             }
-            logFile << std::endl;
+            int q = (int) round(s * (double)sum);
+            q = new_clipped_value(q);
+            image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
         }
-
-
-
-        logFile << "filter applied:" << std::endl << "---border treatment: ";
-        switch (border_treatment) {
-            case 0:
-                logFile << "Zentralbereich" << std::endl;
-                break;
-            case 1:
-                logFile << "Zero Padding" << std::endl;
-                break;
-            case 2:
-                logFile << "Konstante Randbedingung" << std::endl;
-                break;
-            case 3:
-                logFile << "Gespiegelte Randbedingung" << std::endl;
-                break;
-        }
-        logFile << "---filter width: " << filter_width << std::endl;
-        logFile << "---filter height: " << filter_height << std::endl;
-        return image;
     }
 
-    /**
+    logFile << "filter applied:" << std::endl << "---border treatment: ";
+    switch (border_treatment) {
+    case 0:
+        logFile << "Zentralbereich" << std::endl;
+        break;
+    case 1:
+        for (int u = 0; u < L; u++)
+        {
+            for (int v = 0; v < image->height(); v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y = 0;
+                        if (image->valid(u+i, v+j))
+                        {
+                            QRgb p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        for (int u = L; u < image->width()-L; u++)
+        {
+            for (int v = 0; v < K; v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y = 0;
+                        if (image->valid(u+i, v+j))
+                        {
+                            QRgb p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        for (int u = image->width()-L; u < image->width(); u++)
+        {
+            for (int v = 0; v < image->height(); v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y = 0;
+                        if (image->valid(u+i, v+j))
+                        {
+                            QRgb p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        for (int u = L; u < image->width()-L; u++)
+        {
+            for (int v = image->height()-K; v < image->height(); v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y = 0;
+                        if (image->valid(u+i, v+j))
+                        {
+                            QRgb p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        logFile << "Zero Padding" << std::endl;
+        break;
+    case 2:
+        logFile << image->height() << "   "  << image->width() << std::endl;
+        for (int u = 0; u < L; u++)
+        {
+            for (int v = 0; v < image->height(); v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y;
+                        QRgb p;
+                        if (image->valid(u+i, v+j))
+                        {
+                            p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        else
+                        {
+                            if (u+i < 0 && v+j < 0)
+                            {
+                                p = image_copy->pixel(0, 0);
+                            }
+                            else if (u+i >= 0 && v+j < 0)
+                            {
+                                p = image_copy->pixel(u+1, 0);
+                            }
+                            else if (u+i < 0 && v+j >= image->height())
+                            {
+                                p = image_copy->pixel(image->height()-1, image->height()-1);
+                            }
+                            else if (u+i >= 0 && v+j >= image->height())
+                            {
+                                p = image_copy->pixel(u+i, image->height()-1);
+                            }
+                            else
+                            {
+                                p = image_copy->pixel(0, v+j);
+                            }
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        for (int u = L; u < image->width()-L; u++)
+        {
+            for (int v = 0; v < K; v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y;
+                        QRgb p;
+                        if (image->valid(u+i, v+j))
+                        {
+                            p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        else
+                        {
+                            p = image_copy->pixel(u+i, 0);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        for (int u = image->width()-L; u < image->width(); u++)
+        {
+            for (int v = 0; v < image->height(); v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y;
+                        QRgb p;
+                        if (image->valid(u+i, v+j))
+                        {
+                            p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        else
+                        {
+                            if (u+i >= image->width() && v+j < 0)
+                            {
+                                p = image_copy->pixel(image->width()-1, 0);
+                            }
+                            else if (u+i < image->width() && v+j < 0)
+                            {
+                                p = image_copy->pixel(u+i, 0);
+                            }
+                            else if (u+i < image->width() && v+j >= image->height())
+                            {
+                                p = image_copy->pixel(u+i, image->height()-1);
+                            }
+                            else if (u+i >= image->width() && v+j >= image->height())
+                            {
+                                p = image_copy->pixel(image->width()-1, image->height()-1);
+                            }
+                            else
+                            {
+                                p = image_copy->pixel(image->width()-1, v+j);
+                            }
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        for (int u = L; u < image->width()-L; u++)
+        {
+            for (int v = image->height()-K; v < image->height(); v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y;
+                        QRgb p;
+                        if (image->valid(u+i, v+j))
+                        {
+                            p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        else
+                        {
+                            p = image_copy->pixel(u+i, image->height()-1);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        logFile << "Konstante Randbedingung" << std::endl;
+        break;
+    case 3:
+        for (int u = 0; u < L; u++)
+        {
+            for (int v = 0; v < image->height(); v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y;
+                        QRgb p;
+                        if (image->valid(u+i, v+j))
+                        {
+                            p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        else
+                        {
+                            if (u+i < 0 && v+j < 0)
+                            {
+                                p = image_copy->pixel(-1*(u+i), -1*(v+j));
+                            }
+                            else if (u+i >= 0 && v+j < 0)
+                            {
+                                p = image_copy->pixel(u+i, -1*(v+j));
+                            }
+                            else if (u+i < 0 && v+j >= image->height())
+                            {
+                                p = image_copy->pixel(-1*(u+i), image->height()-(v+j-(image->height()-1)));
+                            }
+                            else if (u+i >= 0 && v+j >= image->height())
+                            {
+                                p = image_copy->pixel(u+i, image->height()-(v+j-(image->height()-1)));
+                            }
+                            else
+                            {
+                                p = image_copy->pixel(-1*(u+i), v+j);
+                            }
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        for (int u = L; u < image->width()-L; u++)
+        {
+            for (int v = 0; v < K; v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y;
+                        QRgb p;
+                        if (image->valid(u+i, v+j))
+                        {
+                            p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        else
+                        {
+                            p = image_copy->pixel(u+i, -1*(v+j));
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        for (int u = image->width()-L; u < image->width(); u++)
+        {
+            for (int v = 0; v < image->height(); v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y;
+                        QRgb p;
+                        if (image->valid(u+i, v+j))
+                        {
+                            p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        else
+                        {
+                            if (u+i < image->width() && v+j < 0)
+                            {
+                                p = image_copy->pixel(u+i, -1*(v+j));
+                            }
+                            else if (u+i >= image->width() && v+j < 0)
+                            {
+                                p = image_copy->pixel(image->width()-(u+i-(image->width()-1)), -1*(v+j));
+                            }
+                            else if (u+i < image->width() && v+j >= image->height())
+                            {
+                                p = image_copy->pixel(u+i, image->height()-(v+j-(image->height()-1)));
+                            }
+                            else if (u+i >= image->width() && v+j >= image->height())
+                            {
+                                p = image_copy->pixel(image->width()-(u+i-(image->width()-1)), image->height()-(v+j-(image->height()-1)));
+                            }
+                            else
+                            {
+                                p = image_copy->pixel(image->width()-(u+i-(image->width()-1)), v+j);
+                            }
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        for (int u = L; u < image->width()-L; u++)
+        {
+            for (int v = image->height()-K; v < image->height(); v++)
+            {
+                int sum = 0;
+                QRgb pixel = image_copy->pixel(u, v);
+                pixel = RgbToYCbCr(pixel);
+                int Cb = qGreen(pixel);
+                int Cr = qBlue(pixel);
+                for (int i = -L; i <= L; i++)
+                {
+                    for (int j = -K; j <= K; j++)
+                    {
+                        int Y;
+                        QRgb p;
+                        if (image->valid(u+i, v+j))
+                        {
+                            p = image_copy->pixel(u+i, v+j);
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        else
+                        {
+                            p = image_copy->pixel(u+i, image->height()-(v+j-(image->height()-1)));
+                            p = RgbToYCbCr(p);
+                            Y = qRed(p);
+                        }
+                        int c = filter[j+K][i+L];
+                        sum += c * Y;
+                    }
+                }
+                int q = (int) round(s * (double)sum);
+                q = new_clipped_value(q);
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
+        }
+
+        logFile << "Gespiegelte Randbedingung" << std::endl;
+        break;
+    }
+    logFile << "---filter width: " << filter_width << std::endl;
+    logFile << "---filter height: " << filter_height << std::endl;
+    return image;
+}
+
+/**
      * @brief filterGauss2D
      *      calculate the 2D Gauss filter algorithm via two separate 1D operations,
      *      handle border treatment as desired
@@ -118,26 +641,26 @@ namespace cg2 {
      *      3: Gespiegelte Randbedingung
      * @return new Image to show in GUI
      */
-    QImage* filterGauss2D(QImage * image, double gauss_sigma, int border_treatment){
+QImage* filterGauss2D(QImage * image, double gauss_sigma, int border_treatment){
 
 
-        logFile << "2D Gauss-Filter angewendet mit σ: " << gauss_sigma;
-        logFile <<  " ---border treatment: ";
-        switch (border_treatment) {
-            case 0:
-                logFile << "Zentralbereich" << std::endl;
-                break;
-            case 1:
-                logFile << "Zero Padding" << std::endl;
-                break;
-            case 2:
-                logFile << "Konstante Randbedingung" << std::endl;
-                break;
-            case 3:
-                logFile << "Gespiegelte Randbedingung" << std::endl;
-                break;
-        }
-        return image;
+    logFile << "2D Gauss-Filter angewendet mit σ: " << gauss_sigma;
+    logFile <<  " ---border treatment: ";
+    switch (border_treatment) {
+    case 0:
+        logFile << "Zentralbereich" << std::endl;
+        break;
+    case 1:
+        logFile << "Zero Padding" << std::endl;
+        break;
+    case 2:
+        logFile << "Konstante Randbedingung" << std::endl;
+        break;
+    case 3:
+        logFile << "Gespiegelte Randbedingung" << std::endl;
+        break;
     }
+    return image;
+}
 }
 
