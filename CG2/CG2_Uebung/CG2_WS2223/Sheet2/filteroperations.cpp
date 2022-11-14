@@ -641,8 +641,81 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
      *      3: Gespiegelte Randbedingung
      * @return new Image to show in GUI
      */
-QImage* filterGauss2D(QImage * image, double gauss_sigma, int border_treatment){
+QImage* filterGauss2D(QImage * image, double gauss_sigma, int border_treatment) {
+    QImage* image_copy = new QImage(*image);
+    /**
+     * Wie soll der Gaus-Filter am Rand angewandt werden?
+     * Da ja auf die Vorverarbeiteten Werte gerechnet wird, die Randpixel allerdings nicht vorverarbeitet sind beim zweiten durchlauf.
+     * Genauer von wo bis wo müssen die beiden Schleifen laufen?
+     */
+    int center = (int) (3.0 * gauss_sigma);
+    int filter_Size = 2 * center + 1;
+    double sigma2 = gauss_sigma * gauss_sigma;
+    double h[filter_Size];
+    double s = 0;
 
+    for (int i = 0; i < filter_Size; i++)
+    {
+        double r = center - i;
+        h[i] = (double) exp(-0.5 * (r * r) / sigma2);
+        s += h[i];
+    }
+    s = 1/s;
+    //    logFile << s << std::endl << std::endl;
+    //    for (int i = 0; i < 2 * center + 1; i++)
+    //    {
+    //        logFile << h[i] << std::endl;
+    //    }
+
+    int L = 0;
+    int K = filter_Size/2;
+    for (int u = L; u < image->width()-L; u++)
+    {
+        for (int v = K; v < image->height()-K; v++)
+        {
+            double sum = 0;
+            QRgb pixel = image_copy->pixel(u, v);
+            pixel = RgbToYCbCr(pixel);
+            int Cb = qGreen(pixel);
+            int Cr = qBlue(pixel);
+            for (int i = -K; i <= K; i++)
+            {
+                QRgb p = image_copy->pixel(u, v+i);
+                p = RgbToYCbCr(p);
+                int Y = qRed(p);
+                double c = h[i+K];
+                sum += c * Y;
+            }
+            int q = (int) round(s * sum);
+            q = new_clipped_value(q);
+            image_copy->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+        }
+    }
+
+    L = filter_Size/2;
+    K = 0;
+    for (int v = K; v < image->height()-K; v++)
+    {
+        for (int u = L; u < image->width()-L; u++)
+        {
+            double sum = 0;
+            QRgb pixel = image_copy->pixel(u, v);
+            pixel = RgbToYCbCr(pixel);
+            int Cb = qGreen(pixel);
+            int Cr = qBlue(pixel);
+            for (int i = -L; i <= L; i++)
+            {
+                QRgb p = image_copy->pixel(u+i, v);
+                p = RgbToYCbCr(p);
+                int Y = qRed(p);
+                double c = h[i+L];
+                sum += c * Y;
+            }
+            int q = (int) round(s * sum);
+            q = new_clipped_value(q);
+            image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+        }
+    }
 
     logFile << "2D Gauss-Filter angewendet mit σ: " << gauss_sigma;
     logFile <<  " ---border treatment: ";
