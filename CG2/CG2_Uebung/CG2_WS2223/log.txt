@@ -5,17 +5,224 @@ Image characteristics calculated:
 --- Average: 124 ; Variance: 2290
 --- Histogram calculated: linear scaling = 1
 
-Filter read:
-1 | 1 | 1
-1 | 1 | 1
-1 | 1 | 1
-filter applied:
----border treatment: 512   512
-Konstante Randbedingung
----filter width: 3
----filter height: 3
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
 Image characteristics calculated:
---- Average: 124 ; Variance: 2200
+--- Average: 124 ; Variance: 2195
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 2145
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 2110
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 2082
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 2058
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 2038
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 2020
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 2004
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1990
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1977
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1964
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1953
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1943
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1934
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1925
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1917
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1909
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1902
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1895
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1889
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1883
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1878
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1872
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1868
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1863
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1859
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1855
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1852
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1848
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1845
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1842
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1839
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1837
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1834
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1832
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1830
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1828
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1826
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1824
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1823
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1821
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1820
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1819
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 0.85 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1818
 --- Histogram calculated: linear scaling = 1
 
 Reset Image
@@ -23,28 +230,73 @@ Image characteristics calculated:
 --- Average: 124 ; Variance: 2290
 --- Histogram calculated: linear scaling = 1
 
-Filter read:
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
-filter applied:
----border treatment: 512   512
-Konstante Randbedingung
----filter width: 15
----filter height: 15
+2D Gauss-Filter angewendet mit σ: 3 ---border treatment: Zentralbereich
 Image characteristics calculated:
---- Average: 124 ; Variance: 1789
+--- Average: 124 ; Variance: 1924
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 3 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1792
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 3 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1702
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 3 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1632
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 3 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1574
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 3 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1525
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 3 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1482
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 3 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1444
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 3 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 1409
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 124 ; Variance: 2290
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 15 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 123 ; Variance: 1248
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 15 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 123 ; Variance: 1053
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 15 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 948
+--- Histogram calculated: linear scaling = 1
+
+2D Gauss-Filter angewendet mit σ: 15 ---border treatment: Zentralbereich
+Image characteristics calculated:
+--- Average: 124 ; Variance: 881
 --- Histogram calculated: linear scaling = 1
 
