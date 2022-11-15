@@ -9,7 +9,7 @@
             "port": 3306,
             "driver": "MySQL",
             "name": "HeiseMatrixDB",
-            "database": "heisematrix",
+            "database": "heisematrixdb",
             "username": "root",
             "password": "password"
         }
