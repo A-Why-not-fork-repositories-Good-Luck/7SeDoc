@@ -79,7 +79,7 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
             if(j < (filter_width-1)){
                 logFile << " | ";
             }
-            s += filter[i][j];
+            s += abs(filter[i][j]);
         }
         logFile << std::endl;
     }
