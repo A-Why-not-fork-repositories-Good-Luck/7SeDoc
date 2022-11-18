@@ -79,7 +79,7 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
             if(j < (filter_width-1)){
                 logFile << " | ";
             }
-            s += abs(filter[i][j]);
+            s += filter[i][j];
         }
         logFile << std::endl;
     }
@@ -642,94 +642,68 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
      * @return new Image to show in GUI
      */
 QImage* filterGauss2D(QImage * image, double gauss_sigma, int border_treatment) {
-    QImage* image_copy = new QImage(*image);
-    /**
-     * Wie soll der Gaus-Filter am Rand angewandt werden?
-     * Da ja auf die Vorverarbeiteten Werte gerechnet wird, die Randpixel allerdings nicht vorverarbeitet sind beim zweiten durchlauf.
-     * Genauer von wo bis wo müssen die beiden Schleifen laufen?
-     */
     int center = (int) (3.0 * gauss_sigma);
     int filter_Size = 2 * center + 1;
     double sigma2 = gauss_sigma * gauss_sigma;
     double h[filter_Size];
     double s = 0;
 
+
+    double min = 9999999.0;
     for (int i = 0; i < filter_Size; i++)
     {
         double r = center - i;
         h[i] = (double) exp(-0.5 * (r * r) / sigma2);
-        s += h[i];
-    }
-    s = 1/s;
-    //    logFile << s << std::endl << std::endl;
-    //    for (int i = 0; i < 2 * center + 1; i++)
-    //    {
-    //        logFile << h[i] << std::endl;
-    //    }
-
-    int L = 0;
-    int K = filter_Size/2;
-    for (int u = L; u < image->width()-L; u++)
-    {
-        for (int v = K; v < image->height()-K; v++)
+        //s += h[i];
+        if (h[i] < min)
         {
-            double sum = 0;
-            QRgb pixel = image_copy->pixel(u, v);
-            pixel = RgbToYCbCr(pixel);
-            int Cb = qGreen(pixel);
-            int Cr = qBlue(pixel);
-            for (int i = -K; i <= K; i++)
-            {
-                QRgb p = image_copy->pixel(u, v+i);
-                p = RgbToYCbCr(p);
-                int Y = qRed(p);
-                double c = h[i+K];
-                sum += c * Y;
-            }
-            int q = (int) round(s * sum);
-            q = new_clipped_value(q);
-            image_copy->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            min = h[i];
         }
     }
+    double faktor = 1/min;
 
-    L = filter_Size/2;
-    K = 0;
-    for (int v = K; v < image->height()-K; v++)
+    int** filter_Spalte;
+    filter_Spalte = new int*[filter_Size];
+    for (int i = 0; i < filter_Size; i++)
     {
-        for (int u = L; u < image->width()-L; u++)
-        {
-            double sum = 0;
-            QRgb pixel = image_copy->pixel(u, v);
-            pixel = RgbToYCbCr(pixel);
-            int Cb = qGreen(pixel);
-            int Cr = qBlue(pixel);
-            for (int i = -L; i <= L; i++)
-            {
-                QRgb p = image_copy->pixel(u+i, v);
-                p = RgbToYCbCr(p);
-                int Y = qRed(p);
-                double c = h[i+L];
-                sum += c * Y;
-            }
-            int q = (int) round(s * sum);
-            q = new_clipped_value(q);
-            image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
-        }
+        filter_Spalte[i] = new int[1];
+        filter_Spalte[i][0] = (int)round(h[i] * faktor);
+        //logFile << filter_Spalte[i][0] << std::endl;
+    }
+
+    int** filter_Zeile;
+    filter_Zeile = new int*[1];
+    filter_Zeile[0] = new int[filter_Size];
+    for (int i = 0; i < filter_Size; i++)
+    {
+        filter_Zeile[0][i] = (int)round(h[i] * faktor);
     }
 
     logFile << "2D Gauss-Filter angewendet mit σ: " << gauss_sigma;
     logFile <<  " ---border treatment: ";
     switch (border_treatment) {
     case 0:
+        image = filterImage(image, filter_Spalte, 1, filter_Size, 0);
+        image = filterImage(image, filter_Zeile, filter_Size, 1, 0);
+
         logFile << "Zentralbereich" << std::endl;
         break;
     case 1:
+        image = filterImage(image, filter_Spalte, 1, filter_Size, 1);
+        image = filterImage(image, filter_Zeile, filter_Size, 1, 1);
+
         logFile << "Zero Padding" << std::endl;
         break;
     case 2:
+        image = filterImage(image, filter_Spalte, 1, filter_Size, 2);
+        image = filterImage(image, filter_Zeile, filter_Size, 1, 2);
+
         logFile << "Konstante Randbedingung" << std::endl;
         break;
     case 3:
+        image = filterImage(image, filter_Spalte, 1, filter_Size, 3);
+        image = filterImage(image, filter_Zeile, filter_Size, 1, 3);
+
         logFile << "Gespiegelte Randbedingung" << std::endl;
         break;
     }
