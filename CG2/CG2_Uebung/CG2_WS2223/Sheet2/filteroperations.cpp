@@ -70,7 +70,7 @@ namespace cg2 {
      */
 QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_height, int border_treatment) {
     QImage* image_copy = new QImage(*image);
-
+    bool is_Ableitung = false;
     double s = 0;
     logFile << "Filter read:" << std::endl;
     for(int i = 0; i < filter_height; i++ ){
@@ -83,7 +83,18 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
         }
         logFile << std::endl;
     }
+    if (s == 0) {
+        is_Ableitung = true;
+        for(int i = 0; i < filter_height; i++ ){
+            for(int j = 0; j < filter_width; j++ ){
+                if(j < (filter_width-1)){
+                }
+                s += abs(filter[i][j]);
+            }
+        }
+    }
     s = 1/s;
+
 
     int L = filter_width/2;
     int K = filter_height/2;
@@ -109,7 +120,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
             }
             int q = (int) round(s * (double)sum);
             q = new_clipped_value(q);
-            image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            if (is_Ableitung)
+            {
+                q += 127;
+                q = new_clipped_value(q);
+                image->setPixel(u, v, qRgb(q, q, q));
+            }
+            else
+            {
+                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+            }
         }
     }
 
@@ -145,7 +165,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -175,7 +204,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -205,7 +243,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -235,7 +282,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -295,7 +351,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -332,7 +397,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -388,7 +462,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -425,7 +508,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -484,7 +576,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -521,7 +622,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -577,7 +687,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -614,7 +733,16 @@ QImage* filterImage(QImage * image, int**& filter, int filter_width, int filter_
                 }
                 int q = (int) round(s * (double)sum);
                 q = new_clipped_value(q);
-                image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                if (is_Ableitung)
+                {
+                    q += 127;
+                q = new_clipped_value(q);
+                    image->setPixel(u, v, qRgb(q, q, q));
+                }
+                else
+                {
+                    image->setPixel(u, v, YCbCrToRgb(qRgb(q, Cb, Cr)));
+                }
             }
         }
 
@@ -646,8 +774,6 @@ QImage* filterGauss2D(QImage * image, double gauss_sigma, int border_treatment) 
     int filter_Size = 2 * center + 1;
     double sigma2 = gauss_sigma * gauss_sigma;
     double h[filter_Size];
-    double s = 0;
-
 
     double min = 9999999.0;
     for (int i = 0; i < filter_Size; i++)
@@ -710,4 +836,5 @@ QImage* filterGauss2D(QImage * image, double gauss_sigma, int border_treatment) 
     return image;
 }
 }
+
 
