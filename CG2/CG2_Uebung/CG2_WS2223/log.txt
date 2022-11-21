@@ -5,3 +5,247 @@ Image characteristics calculated:
 --- Average: 124 ; Variance: 2290
 --- Histogram calculated: linear scaling = 1
 
+-----------
+Beginne Canny Algorithmus:
+Sigma: 1,500000
+tHi: 20
+tLo: 10
+10
+2D Gauss-Filter angewendet mit σ: 1.5 ---border treatment: Filter read:
+1
+5
+14
+28
+35
+28
+14
+5
+1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 1
+---filter height: 9
+Filter read:
+1 | 5 | 14 | 28 | 35 | 28 | 14 | 5 | 1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 9
+---filter height: 1
+Konstante Randbedingung
+EdgeFilter applied:
+---derivative_filter: -1|0|1
+---smoothing_filter: 1|1|1
+---desired_image: 0
+EdgeFilter applied:
+---derivative_filter: -1|0|1
+---smoothing_filter: 1|1|1
+---desired_image: 1
+Filter read:
+1
+1
+1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 1
+---filter height: 3
+Filter read:
+-1 | 0 | 1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 3
+---filter height: 1
+EdgeFilter applied:
+---derivative_filter: -1|0|1
+---smoothing_filter: 1|1|1
+---desired_image: 2
+Filter read:
+1 | 1 | 1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 3
+---filter height: 1
+Filter read:
+-1
+0
+1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 1
+---filter height: 3
+EdgeFilter applied:
+---derivative_filter: -1|0|1
+---smoothing_filter: 1|1|1
+---desired_image: 1
+Filter read:
+1
+1
+1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 1
+---filter height: 3
+Filter read:
+-1 | 0 | 1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 3
+---filter height: 1
+EdgeFilter applied:
+---derivative_filter: -1|0|1
+---smoothing_filter: 1|1|1
+---desired_image: 2
+Filter read:
+1 | 1 | 1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 3
+---filter height: 1
+Filter read:
+-1
+0
+1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 1
+---filter height: 3
+Image characteristics calculated:
+--- Average: 0 ; Variance: 219
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 124 ; Variance: 2290
+--- Histogram calculated: linear scaling = 1
+
+-----------
+Beginne Canny Algorithmus:
+Sigma: 1,500000
+tHi: 20
+tLo: 10
+10
+2D Gauss-Filter angewendet mit σ: 1.5 ---border treatment: Filter read:
+1
+5
+14
+28
+35
+28
+14
+5
+1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 1
+---filter height: 9
+Filter read:
+1 | 5 | 14 | 28 | 35 | 28 | 14 | 5 | 1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 9
+---filter height: 1
+Konstante Randbedingung
+EdgeFilter applied:
+---derivative_filter: -1|0|1
+---smoothing_filter: 1|1|1
+---desired_image: 0
+EdgeFilter applied:
+---derivative_filter: -1|0|1
+---smoothing_filter: 1|1|1
+---desired_image: 1
+Filter read:
+1
+1
+1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 1
+---filter height: 3
+Filter read:
+-1 | 0 | 1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 3
+---filter height: 1
+EdgeFilter applied:
+---derivative_filter: -1|0|1
+---smoothing_filter: 1|1|1
+---desired_image: 2
+Filter read:
+1 | 1 | 1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 3
+---filter height: 1
+Filter read:
+-1
+0
+1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 1
+---filter height: 3
+EdgeFilter applied:
+---derivative_filter: -1|0|1
+---smoothing_filter: 1|1|1
+---desired_image: 1
+Filter read:
+1
+1
+1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 1
+---filter height: 3
+Filter read:
+-1 | 0 | 1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 3
+---filter height: 1
+EdgeFilter applied:
+---derivative_filter: -1|0|1
+---smoothing_filter: 1|1|1
+---desired_image: 2
+Filter read:
+1 | 1 | 1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 3
+---filter height: 1
+Filter read:
+-1
+0
+1
+filter applied:
+---border treatment: 512   512
+Konstante Randbedingung
+---filter width: 1
+---filter height: 3
+Image characteristics calculated:
+--- Average: 0 ; Variance: 219
+--- Histogram calculated: linear scaling = 1
+
+Reset Image
+Image characteristics calculated:
+--- Average: 124 ; Variance: 2290
+--- Histogram calculated: linear scaling = 1
+

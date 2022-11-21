@@ -134,6 +134,14 @@ void calcImageCharacteristics(QImage * image, double*& histogram_ref, int& varia
             histogram_ref[i] *= log_scale;
         }
     }
+
+    for (int i = 0; i < image->width(); i++) {
+        for (int j = 0; j < image->height(); j++) {
+            QRgb pixel = RgbToYCbCr(image->pixel(i, j));
+            //image->setPixel(i, j, qRgb(qRed(pixel), qRed(pixel), qRed(pixel)));
+
+        }
+    }
     logFile << "Image characteristics calculated:" << std::endl << "--- Average: " << average_ref << " ; Variance: " << variance_ref << std::endl << "--- Histogram calculated: " << "linear scaling = " << linear_scaling << std::endl;
 }
 
