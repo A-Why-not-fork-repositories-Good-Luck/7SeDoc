@@ -1,6 +1,6 @@
 package Aufgabe7_5;
 
-public class Punkt {
+public class punktStart {
     private double startX;
 
     public double getStartX() {
@@ -21,6 +21,6 @@ public class Punkt {
         this.startY = startY;
     }
 
-    public Punkt() {
+    public punktStart() {
     }
 }

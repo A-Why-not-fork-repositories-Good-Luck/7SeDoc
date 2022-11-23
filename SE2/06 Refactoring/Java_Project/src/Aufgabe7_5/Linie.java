@@ -1,28 +1,27 @@
 package Aufgabe7_5;
 
 /**
- * aus [Grechenig et al. 2010]
- */ 
-public class Linie {
+ * Beispielklasse für SE2 Aufgabe 7.5
+ */
+public class Linie implements LinieInterface {
 
-	private final Punkt punkt = new Punkt();
+	private final Aufgabe7_5.punktStart punktStart = new punktStart();
+	private final Aufgabe7_5.punktEnde punktEnde = new punktEnde();
 
-	private double endX;
-	private double endY;
-	
-	public Linie(double startX, double startY, 
-			double endX, double endY) {
-		this.punkt.setStartX(startX);
-		this.punkt.setStartY(startY);
-		this.endX = endX;
-		this.endY = endY;
+	public Linie(double startX, double startY,
+				 double endX, double endY) {
+		this.punktStart.setStartX(startX);
+		this.punktStart.setStartY(startY);
+		this.punktEnde.setEndX(endX);
+		this.punktEnde.setEndY(endY);
 	}
-	
+
 	public double distanz() {
-		return Math.sqrt(Math.pow(endX - punkt.getStartX(), 2.0) + Math.pow(endY - punkt.getStartY(), 2.0));
+		return Math.sqrt(Math.pow(punktEnde.getEndX() - punktStart.getStartX(), 2.0) + Math.pow(punktEnde.getEndY() - punktStart.getStartY(), 2.0));
 	}
-	
+
+	@Override
 	public double flaeche() {
-		return (Math.abs(endX - punkt.getStartX()) * Math.abs(endY - punkt.getStartY())) / 2;
+		return (Math.abs(punktEnde.getEndX() - punktStart.getStartX()) * Math.abs(punktEnde.getEndY() - punktStart.getStartY())) / 2;
 	}
 }
